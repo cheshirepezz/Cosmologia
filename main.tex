@@ -1,0 +1,1104 @@
+\documentclass[12pt, a4paper]{article}
+
+\usepackage{physics} 
+\usepackage[multi-part-units=single,load=physical]{siunitx}\usepackage{enumerate} 
+\usepackage{pgfplots}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{tabulary}
+\usepackage{amsmath}%I added this so that you can use the align tool for equations!
+\usepackage{amssymb}
+\usepackage{microtype}%to improve typography in the document
+\pgfplotsset{compat=1.14}
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=20mm,
+ top=20mm,
+ }
+
+\begin{document}
+
+\title{Cosmologia}
+\author{Luca Pezzini \\ Master program in Astrophysics \\ Universit\`{a} degli Studi di Torino, Italy}
+\date{\today}
+
+\maketitle
+\newpage
+\tableofcontents
+\newpage
+%%%%%%%%%%%%%%%%%%%%SEC1: UNIVERSO OMOGENEO ED ISOTROPO
+\section{Universo Omogeneo ed Isotropo}
+L'equazione di Einstein contiene al suo interno 10 eq. diff. non lin. al second'ordine funzione del tensore metrico; data la complessità ci si mette in condizione di semplificare il sistema.\\ 
+\textbf{Principio Cosmologico}: L'universo a larga scala (100 Mpc) è omogeneo ed isotropo, quindi abbiamo invarianza per traslazioni e  rotazioni spaziali (confermato da CMB), ma non per traslazioni temporali senn\'{o} avremmo il principio cosmologico perfetto con \textbf{universo  statico}.
+%%%%%%%%%%SUB: Risolvo Eq. Einstein 
+\subsection{Risolvo equazioni di Einstein}
+Risolviamo l'equazione di Einstein sotto queste prop., ricavo dunque il tensore metrico.
+\begin{itemize}
+    \item \textbf{Metrica O-I 4D}: superfice sferica immersa in ${\rm I\!R^3}$.
+    \item \textbf{Coordinate Coomoventi}: la coord. spaziale varia in funzione del tempo risp. ad un arbitrario SR \textbf{uniformemente}, dunque una volta  nota la variazione temporale del \textbf{fattore di scala} $a(t)$ e la posizione della griglia a $t_0$ la conosco ad ogni $t$.
+    \item \textbf{Metrica di F-R-W}: metrica di un fluido O-I in espansione uniforme. Funzione della curvatura dello spazio tempo $k(t)= R(t)^{-1}$, che espandendosi varia mantenendo costante il segno.
+\end{itemize}
+\begin{equation}
+    ds^2 = c^2 dt^2 - a(t)[dr^2 - k^{-1} S_k^2(\tau \sqrt{\abs{k}})(d\theta^2 + sin^2\theta d\phi^2)] 
+\end{equation}
+In dipendenza da $k$ avremo differenti geometrie dell'universo:
+\begin{itemize}
+    \item $k=0$: Metrica di Minkowsky (parte spaziale Euclidea) ($k^{-1} S_k^2(\tau \sqrt{\abs{k}}) \rightarrow r^2$)
+    \item $k=1$: Geometria Sferica ($k^{-1} S_k^2(\tau \sqrt{\abs{k}}) \rightarrow sin^2 r$)
+    \item $k=-1$: Geometria iperbolica ($k^{-1} S_k^2(\tau \sqrt{\abs{k}}) \rightarrow sinh^2r$)
+\end{itemize}
+Dunque otteniamo una metrica diagonale: $g_{ii} = -a(t)^2 G_{ii}$ con 4 termini non nulli, dunque l'equazione di Einstein si riduce a due equazioni con incognita il \textbf{fattore di scala} derivato che prendono il nome di \textbf{eq. di Friedmann}:
+\begin{equation}
+    \begin{cases}
+        \ddot{a} = - \frac{4\pi G}{3}(\rho + \frac{3}{c^2p}) a + \frac{1}{3} \Lambda a\\
+        \dot{a} = - \frac{8\pi G}{3}\rho a^2 - kc^2 + \frac{1}{3}\Lambda a^2
+    \end{cases}
+\end{equation}
+Quindi nel caso di universo O-I risolvere le eq. di Friedmann corrispondere a riolvere le eq. di Einstein. Per risolvere completamente il sistema serve aggiungere l'\textbf{eq. di Stato} per legare densit\`{a} e pressione:
+\begin{equation}
+    p = w \rho c^2,\quad 0 \leq w \leq 1
+\end{equation}
+\begin{itemize}
+    \item $w=0$: Universo dom. da \textbf{Polvere}, radiaz. trascurab, non relat.
+    \item $w=\frac{1}{3}$:Universo dom. da \textbf{Radiazione}, fluido ultra rel.
+    \item $w=-1$: Universo dom. da \textbf{Costante Cosmologica}, fluido non ordinario a pressione negativa
+\end{itemize}
+Abbiamo Bisogno di una quarta equazione che ricaviamo dalla \textbf{Conservazione del tensore Energia Impulso}:
+\begin{equation}
+    T^{\mu\nu}_{;\mu} = \frac{\partial T^{\mu\nu}}{\partial x^\mu}+\Gamma^\mu_{\mu \lambda} T^{\lambda\nu}+\Gamma^\nu_{\mu\lambda} T^{\mu\lambda}=0
+\end{equation}
+\begin{equation}
+  \begin{cases}
+         \Gamma^\mu_{\mu \lambda}=\frac{1}{\sqrt{g}} \frac{\partial}{\partial x^\lambda} \sqrt{g}
+         \\
+        T^{\mu \nu}=(p+\rho c^2)u^\mu u^\nu-pg^{\mu\nu}
+    \end{cases}
+\end{equation}
+Sotto queste ipotesi la componente spaziale non ci d\'{a} informazioni mentre da quella temporale otteniamo:
+\begin{equation}
+    a^3(t) \frac{dp}{dt}=\frac{d}{dt}[a^3(t)(p+\rho c^2)]
+\end{equation}
+Passo alla notazione tilde di p e $\rho$ quindi tengo conto di $\Lambda$ ottenendo
+\begin{equation}
+    \rho \propto a^{-3(w+1)}
+\end{equation}
+\begin{itemize}
+    \item $w=0$: conservazione materia
+    \item $w=\frac{1}{3}$:conservazione densit\'{a} di energia
+\end{itemize}
+%%%%%%%%%%SUB: Risolvo equazioni di Friedmann: Einstein - de Sitter
+\subsection{Risolvo equazioni di Friedmann: Einstein - de Sitter}
+\begin{equation}
+    \dot{a}^2 = \frac{8 \pi G}{3} \rho a^2 - kc^2 + \frac{\Lambda}{3} a^2
+\end{equation}
+Mi metto nel caso pi\'{u} semplice quindi:
+\begin{itemize}
+    \item Metrica Euclidea ($k=0$)
+    \item Costante Cosmologica  nulla ($\Lambda=0$)
+\end{itemize}
+Esplicito la densità e metto in evidenza la costante di Hubble ($H(t)=\frac{\dot{a}}{a}$), ottengo la \textbf{densit\'{a} critica} che è l'equazione di Friedmann per universo di EdS:
+\begin{equation}
+   \rho_c=\frac{3 H^2(t)}{8 \pi G}
+\end{equation}
+In cosmologia la densit\'{a} si misura rispetto a $\rho_c$, dunque si definisce la \textbf{Densit\'{a} in massa} dell'universo:
+\begin{equation}
+   \Omega=\frac{\rho(t))}{\rho_c(t)},\quad \Omega_0=1
+\end{equation}
+\begin{equation}
+  \begin{cases}
+         \Omega_0(t)>1 \rightarrow k>0
+         \\
+         \Omega_0(t)=1 \rightarrow k=0
+         \\
+         \Omega_0(t)<1 \rightarrow k<0
+    \end{cases}
+\end{equation}
+%%%%%%%%%%SUB: Risolvo equazioni di Friedmann: Caso Generico
+\subsection{Risolvo equazioni di Friedmann: Caso Generico}
+\begin{equation}
+    \dot{a}^2 = \frac{8 \pi G}{3} \rho a^2 - kc^2 + \frac{\Lambda}{3} a^2
+\end{equation}
+Inserisco le relazioni della denist\'{a} trovate in precedenza ed esplicito $kc^2$:
+\begin{itemize}
+    \item Tempo attuale $t=t_0$ dunque $a_0=1$
+    \item Densit\'{a} critica: $\frac{8 \pi G}{3}=\frac{H_0^2 \Omega^2}{\rho_0}$ (possiamo prendere al tempo attuale poich\'{e} è una costante)
+    \item Tensore En.-Imp.: $\rho=\rho_0 a^{-3(w+1)}$
+\end{itemize}
+Ottengo:
+\begin{equation}
+    kc^2=H_0^2(\Omega - 1)-\frac{\Lambda}{3}
+\end{equation}
+Definisco $\Omega_{\lambda}=\frac{\Lambda}{3 H^2}$ adimensionale, e dividendo per $a^2$ ottengo una nuova forma per l'\textbf{Equazione di Friedmann}:
+\begin{equation}
+    H^2(t)=\frac{H_0^2}{a^{3(w+1)}}E(a,w,\Omega_0, \Omega_{\lambda_0}), \quad E=\Omega_0+(1-\Omega_0-\Omega_{\lambda_0})a^{3w+1}+\Omega_{\lambda_0}a^{3(w+1)}
+\end{equation}
+Definendo $\Omega_k(t)=\Omega_{\lambda_0} + \Omega_0 -1=\Omega_{k_0}=\frac{kc^2}{H_0^2}$ curvatura della parte spaziale dell'universo, ho tre casi:
+\begin{equation}
+  \begin{cases}
+         \Omega_k(t)>0 \rightarrow k>0
+         \\
+         \Omega_k(t)=0 \rightarrow k=0
+         \\
+         \Omega_k(t)<0 \rightarrow k<0
+    \end{cases}
+\end{equation}
+Osservo che ho $M4$ non solo con $\Omega_0=0$ ma anche con $\Omega_0+\Omega_{\lambda_0}=1$.
+%%%%%%%%%%SUB: Redshift Cosmologico
+\subsection{Redshift Cosmologico}
+In un universo \textbf{omogeneo} e \textbf{isotropo} \footnote{Considerare l'universo om. e isotr. è una approssimazione valida solo su larga scala che implica che il tempo è lo stesso in tutto l'universo (tutta la metrica) \textbf{tempo cosmologico} che è diverso dal tempo che misura un'orologio in un generico punto nell'universo su piccola scala, inquanto lo scorrere del tempo è influenzato dalla curvatura dello spazio-tempo.} con \textbf{espansione uniforme} ho una relazione biunivoca tra $a(t)$ e $t$ (e dunque tra $z$ e $t$) che pu\'{o} essere ottenuta risolvendo l'equazione di Friedmann. 
+Definisco la relazione tra \textbf{a} e \textbf{z} attraverso il moto di un quanto di luce (coordinate coomoventi).
+\begin{equation}
+    ds^2=0 \rightarrow \frac{c}{a(t)}dt=\frac{dx}{\sqrt{1-k x^2}}
+\end{equation}
+La parte \textbf{spaziale} mi da $f_k(r)$:
+\begin{equation}
+    \begin{cases}
+         \arcsin{r} \rightarrow k=1
+         \\
+         r \rightarrow k=0
+         \\
+         \arcsin{r} \rightarrow k=-1
+    \end{cases}
+\end{equation}
+La parte \textbf{temporale} mi da:
+\begin{equation}
+    a(t)=\frac{1}{1+z}
+\end{equation}
+Se l'universo si espande c'\'{e} una dilatazione temporale dovuta all'espansione della metrica di conseguenza abbiamo che la lunghezza d'anda aumenta dello stesso fattore con cui aumenta $\frac{a_0}{a_1}=\frac{\lambda_0}{\lambda_1}$.
+Misurare il redshift vuole dire:
+\begin{itemize}
+    \item Misurare il rapporto dei fattori di scala all'epoca in cui viene emesso e poi rivelato il fotone.
+    \item Misurare a quale epoca è stato emesso il fotone (\textbf{fotone come orologio}).
+\end{itemize}
+\'{E} sbagliato pensare alla legge di Hubble come \textbf{effetto doppler} in quanto RG non esiste uno spazio in cui le galassie si muovono ma solo perchè alcuni oggetti mi permettono di def. un SR, si parla dunque di espanzione della metrica. 
+%%%%%%%%%%SUB: Soluzione eq. di Friedmann in EdS
+\subsection{Soluzioni eq. di Friedmann:}
+\begin{equation}
+    \dot{a}^2(t)=\frac{H_0^2}{a^{3w+1}}\left\{\Omega_0+(1-\Omega_0-\Omega_{\lambda_0})a^{3w+1}+\Omega_{\lambda_0}a^{3(w+1)}\right\}
+\end{equation}
+\subsubsection{Soluzione in EdS}
+Le condizioni:
+\begin{equation}
+    \begin{cases}
+         k=0 \rightarrow \Omega_0=1
+         \\
+         \Lambda=0 \rightarrow \Omega_{\lambda_0}=0
+         \\
+         w \neq -1
+    \end{cases}
+\end{equation}
+L'ultima condizione evita di ottenere $\Lambda > 0$.\\
+Risolvo l'equazione imponendo la condizione che al tempo iniziale l'espansione era nulla:
+\begin{equation}
+    a(t)= \left\{\frac{3(w+1)}{2}H_0 t\right\}^{\frac{2}{3w+1}}
+\end{equation}
+Da cui posso ricavare il valore del tempo dell'universo nella matrica $t_0= \frac{2}{3(w+1)}H_0^{-1}$ (dato da $a(t_0)=1$). 
+\begin{equation}
+    \begin{cases}
+         a(t)= \left\{\frac{t}{t_0}\right\}^{\frac{2}{3(w+1)}}
+         \\
+         H(t)=\frac{2}{3(w+1)}t^{-1}
+         \\
+         \rho(t)= \frac{1}{6 \pi G (w+1)^2}t^{-2}
+    \end{cases}
+\end{equation}
+Controllo per i vari casi che ci sia consistenza con $\rho \propto a^{-3(w+1)}$.\\
+\textbf{Universo di Polvere} ($w=0$):
+ \begin{equation}
+     \begin{cases}
+         a\propto t^{\frac{2}{3}}
+         \\
+         t \propto (1+z)^{-\frac{3}{2}}
+         \\
+         H\propto t^{-1}
+     \end{cases}
+ \end{equation}
+\textbf{Universo di Radiazione} ($w=\frac{1}{3}$):
+ \begin{equation}
+     \begin{cases}
+         a\propto t^{\frac{1}{2}}
+         \\
+         t \propto (1+z)^{-2}
+         \\
+         H\propto t^{-1}
+     \end{cases}
+ \end{equation}
+\subsubsection{Soluzione a cost. cosm. Nulla}
+\textbf{Universo di Polvere} ($\Omega_{\lambda_0}=0,\quad \Omega_0<1,\quad w=0$)\footnote{Geom. iperbolica aperta a espansione infinita.}:
+ \begin{equation}
+     \begin{cases}
+         t=\frac{\Omega_0}{2H_0(1-\Omega_0)^{\frac{3}{2}}}(\sinh{\theta}-\theta)
+         \\
+         a=\frac{\Omega_0}{2(1-\Omega_0)}(\cosh{\theta}-1)
+     \end{cases}
+ \end{equation}
+\textbf{Universo di Radiazione} ($\Omega_{\lambda_0}=0,\quad \Omega_0>1,\quad w=0$)\footnote{Geom. sferica chiusa a espansione finita. Basta sostituire $\theta \rightarrow i\theta$.}:
+ \begin{equation}
+     \begin{cases}
+         t=\frac{\Omega_0}{2H_0(1-\Omega_0)^{\frac{3}{2}}}(\sin{\theta}-\theta)
+         \\
+         a=\frac{\Omega_0}{2(1-\Omega_0)}(\cos{\theta}-1)
+     \end{cases}
+ \end{equation}
+\subsubsection{Parametro di Accelerazione}
+Dopo che Baade scoprì l'esistenza di due categorie di stelle differenti (POP I e POP II), che port\'{o} a correggere la costante di Hubble e dunque la stima dell'et\'{a} dell'universo, non era pi\'{u} necessario porre la costante cosmologica a zero per avere universo piatto. Infatti posso l'ipotesi di universo piatto è contenuta sia in $\Omega_0=1$ e sia in $\Omega_0 + \Omega_{\lambda_0}=1$ che fa crescere l'et\'{a} dell'universo in funzione di $\Omega_{\lambda_0}$.
+\begin{itemize}
+    \item Poich\'{e} oggi misuriamo $\dot{a}>0$ siamo nella parte di curva crescente.
+    \item Quando $\Lambda<0$ allora la concavit\'{a} e verso il basso $\ddot{a}<0$
+\end{itemize}
+Adimensionale e $q>0$
+\begin{equation}
+    q=-\frac{\ddot{a}}{\dot{a}^2}a=(1+3w)\frac{\Omega}{2}-\Omega_{\lambda}
+\end{equation}
+\begin{itemize}
+    \item \textbf{Espansione Decelerata}: $q_0<0$
+    \item \textbf{Espansione Accelerata}: $q_0>0$
+\end{itemize}{}
+\subsubsection{Soluzione a Parametri Arbitrari}
+Il modello di \textbf{Lemetre} (1927) è la generalizzazione dell'equazione di Friedmann che considerava solo il caso particolare a $P=0$, quindi universo di polvere.
+\begin{equation}
+     \begin{cases}
+          \dot{a}^2 = \frac{8 \pi G}{3} \rho a^2 - kc^2 + \frac{\Lambda}{3} a^2
+         \\
+         \dot{\rho}=-3(\rho+\frac{P}{c^2})\frac{\dot{a}}{a}
+     \end{cases}
+\end{equation}
+Studio i vari casi dell'equazione seguente:
+\begin{equation}
+    \dot{a}^2=\frac{H_0^2}{2}(\Omega-\Omega_{k0}a-\Omega_{\lambda0}a^3
+    =\frac{H_0^2}{2}g(a)
+\end{equation}
+Per $a=0$ allora $g(a)=\Omega_0$.\\
+\textbf{Caso $\Lambda<0$:}\\
+\begin{equation}
+     \begin{cases}
+          \Delta=(\frac{\Omega_0}{2\Omega_{\lambda0}})^2-(\frac{\Omega_{k0}}{3\Omega_{\lambda0}})^3
+         \\
+         a_c=2(\frac{\Omega_{k0}}{3\Omega_{\lambda0}})^2 \cos{\left\{\frac{1}{3}\cos^{-1}{(-\frac{\Omega_0}{2\Omega_{\lambda0}}|\frac{3\Omega_{\lambda0}}{\Omega_{k0}}|^\frac{3}{2})}\right\}}
+     \end{cases}
+\end{equation}
+L'universo si espande in modo Decellerato: a raggiunge il massiomo e poi collassa \textbf{indipendentemente} da $\Omega_0$, non ha bisogno dunque di una densit\'{a} sovracritica per avere il collasso.\\
+\textbf{Caso $\Lambda>0$ (Universo Statico di E.):}\\
+L'universo di E. \'{e} \textbf{statico} quindi $\ddot{a}=\dot{a}=0$. Imponendo tali propriet\'{a} otteniamo:
+\begin{equation}
+     \begin{cases}
+          \rho_E=\frac{\Lambda}{4\pi G}
+         \\
+         a_E=(\frac{kc^2}{\Lambda})^\frac{1}{2}
+     \end{cases}
+\end{equation}
+Per l'universo vuoto di de Sitter ($P=\rho=k=0$) è in espansione esponenziale: $a\propto \exp{(\frac{\Lambda}{3})^\frac{1}{2}t}$.
+Genericamente abbiamo:
+\begin{equation}
+     \begin{cases}
+          \dot{a}^2=\frac{H_0^2}{a}(\alpha\beta-\Omega_{k0}a+\Omega_{\Lambda0})
+         \\
+         \ddot{a}^2=\frac{H_0^2}{2}(-\frac{\alpha\beta}{a^2}+2\Omega_{\Lambda0}a)
+     \end{cases}
+\end{equation}
+Troviamo $\alpha$ dalla conservazione della massa: $\alpha=(-\frac{3\Omega_0}{2}\frac{3\Omega_{\Lambda0}}{2\Omega_{k0}}^\frac{1}{2})$ tale che:
+\begin{itemize}
+    \item $\alpha>0$: espansione infinita
+    \item $\alpha=0$: (EdS) il flesso si allunga indefinitamente
+    \item $\alpha<0$: collassa o rimbalza
+\end{itemize}
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=16cm, height=11cm]{images/Friedmann.png}
+    \caption{Modelli di Friedmann}
+    \label{fig:modelli}
+\end{figure}
+Nel ramo “A” l’universo si espande a partire da un’origine (big bang) nel passato e raggiunger\'{a} (eventualmente) uno stato stazionario nel futuro infinito. Nel ramo “B” l’universo si espande a partire da un valore definito di a nel passato infinito. Lo stato stazionario del modello di Eddington-Lemaitre \'{e} indicato da “C” ed \'{e} instabile perch\'{e} l’universo, se perturbato, si muove sul ramo B o A. Un modello “quasi” stazionario pu\'{o} essere quello in cui siamo nella fase asintotica $a(t)$ costante e quindi siamo partiti da un big bang ad un tempo infinito nel passato, ovvero il ramo A.\\
+Parametri attuali:
+\begin{equation}
+     \begin{cases}
+          q_0<0
+         \\
+         \Omega_0=0.3
+         \\
+         \Omega_{\Lambda 0}=0.7
+     \end{cases}
+\end{equation}
+\subsubsection{Instabilit\'{a} del Modello di Einstein}
+La regione piatta più essere simulata da un universo che rimbalza o da uno che si espande e poi collassa. Non \'{e} possibile sapere se ci si trova in un universo statico perch\'{e} potremmo essere in tutti quei punti. Gli stati stazionari appena visti sono instabili e richiedono un preciso fine tuning: cio\'{e} piccole variazioni di $\Omega_0$ e $\Omega_{\Lambda}$ portano alle soluzioni $\alpha<0$ oppure $\alpha>0$.
+\subsubsection{Redshift per Modello di Universo senza Big Bang}
+Se vivessimo in un universo che rimbalza non dovremmo vedere oggetti a $z>1.2$ ma dato che vediamo a $z=10$ allora non siamo in questa situazione.
+\subsection{Distanza in Cosmologia}
+Riprendiamo il discorso fatto nella sezione "Redshift Cosmologico". Passo dalla variabile temporale a $z$ derivando la def. $1+z=\frac{1}{a}$. Sotto le ipotesi:
+\begin{itemize}
+    \item $w=0$
+    \item $\Omega_{\Lambda0}=0$ ($\forall \Omega_0$ per ogni modello di Friedmann)
+\end{itemize}
+Ottengo:
+\begin{equation}
+    \int_{z}^{0}\frac{c dz'}{H_0 E^{\frac{1}{2}}}=f_k(r)
+\end{equation}
+Quindi dalla misura di $z$ posso stimare $r$ e viceversa dalla misura di $r$ posso stimare le costanti cosmologiche $\Omega_0$ e $\Omega_{\Lambda0}$.\\
+Facendo le dovute sostituzioni ottengo la \textbf{formula di Mattig} \footnote{Che è la Legge di Hubble su larga scala, sono delle correzioni relativistiche}:
+\begin{equation}
+    r=\frac{2c}{H_0\Omega_0^2(1+z)}\left\{\Omega_0 z+(\Omega_0-2)[(\Omega_0 z+1)^{\frac{1}{2}}-1]\right\}
+\end{equation}
+Per determinare le costanti cosmologiche bisogna avere un indicatore di distanza e stare su grandi z.
+\subsection{Relazione tipi Distanza: Coomovente vs Angolare}
+Voglio misurare la distanza coomovente $r$ (che non cambia), al tempo attuale $t_0$, di una sorgente a redshift $z$. L'emissione corrisponder\'{a} ad un tempo precente $t$, di conseguenza $d$ sar\'{a} cambiata.
+\begin{equation}
+     \begin{cases}
+         D_A=\frac{r}{1+z}=ar
+         \\
+         D_A=\frac{d}{\theta}
+     \end{cases}
+\end{equation}
+Dunque devo trovare una classe di oggetti di cui conosco le dimensioni $d$. Furono proposte le \textbf{Radiogalassie} poich\'{e} si pensava che la $d$ non variasse (Sbagliato!). Un altro problema \'{e} che $D_A$ a grandi z varia da col modello di Friedmann utilizzato (\textbf{decresce all'aumentare del parametro di densit\'{a}, dunque l'oggetto avr\'{a} un'apertura angolare maggiore}). Posso ricavare una misura di distanza da:
+\begin{itemize}
+    \item \textbf{CMB}: $D_A \sim \Omega_{k0}$ (err 1$\%$) \footnote{All'epoca del disaccoppiamento tra radiazione e materia le perturbazioni di densità che tendono ad oscillare (sotto la pressione di radiazione e l'instabilit\'{a} grav.), si congelano creando la mappo della CMB, le anisotropie hanno dimensioni diverse a seconda del momento in cui si sono formate. Dallo studio delle anisotropie si stima $\Omega_{k0}\sim 0$}
+    \item \textbf{BAO}\footnote{Lo stesso fenomeno fisico del CMB provoca provoca una distribuzione disomogenea delle galassie su scale molto grandi, la Barionic Acoustic Oscillation}
+    \item \textbf{Flusso}
+\end{itemize}
+\subsection{Flusso}
+Ipotizzando \textbf{sorgente isotropa} e \textbf{universo in espansione}, la definizione di flusso deve cambiare, definiamo la \textbf{distanza di luminosit\'{a}}:
+\begin{equation}
+     \begin{cases}
+         f=\frac{L(\nu_1)}{4 \pi D_L^2}
+         \\
+         D_L=(1+z)r=\frac{r}{a}
+     \end{cases}
+\end{equation}
+L'andamento di $D_L(z)$ dipende dal modello di Friedmann che utilizziamo: diminuisce all'aumentare di $\Omega_0$. Osservo che con misure di $D_A$ e $D_L$ riusciamo ad avere una stima di $\Omega_0$ e $\Omega_\Lambda$.
+\subsection{Brillanza Superficiale}
+Ipotizzando \textbf{sorgente isotropa} e \textbf{universo in espansione}, la definizione di \textbf{Brillanza Superficiale} diventa:
+\begin{equation}
+    S_{oss}=\frac{S_{sorg}}{(1+z)^4}
+\end{equation}
+Ho dunque una diminuzione della Brillanza superficiale a  causa dell'espanzione dell'universo. In magnitudini abbiamo invece l'opposto.
+\begin{equation}
+     \begin{cases}
+        \mu=-2.5\log_{10}{S}+k
+         \\
+        \mu_{oss}=\mu_{sorg}+10\log_{10}{1+z}
+     \end{cases}
+\end{equation}
+\subsubsection{Paradosso di Olbers}
+Presupposti:
+\begin{itemize}
+    \item Universo infinito spazialmente e temporalmente
+    \item Stelle disposte omogeneamente
+\end{itemize}
+Ipotesi che risolvono il paradosso:
+\begin{itemize}
+    \item L'universo esiste da un tempo finito
+    \item L'universo è in espansione
+\end{itemize}
+Il fatto che il flusso sia $f \propto D^{-2}$ è compensato dal fatto che la densit\'{a} numerica di stelle cresca con $L= h \nu n V\propto D^2$, quindi il flusso osservato è costante. Perch\'{e} vediamo il cielo nero? La soluzione fu proposta da Edga A. Poe che ipotizzo che sia finito, dunque ho delle los in cui posso non intercetto stelle, e in espansione, quindi la brillanza diminuisce in funzione di z.
+Definiamo la \textbf{Correzione k}:
+\begin{equation}
+    f(\nu_0) \Delta\nu_0=\frac{L(\nu_1)\Delta\nu_1}{4\pi D_L^2}=\frac{L(\nu_0)\Delta\nu_0}{4\pi D_L^2}\frac{L(\nu_1)\Delta\nu_1}{L(\nu_0)\Delta\nu_0}\Delta_0
+\end{equation}
+Passando alle \textbf{Magnitudini Apparenti}:
+\begin{equation}
+    m_{\nu_0}=-2.5\log_{10}{\left\{\frac{L(\nu_1)\Delta\nu_1}{4\pi D_L^2}\Delta\nu_0\right\}}-2.5\log_{10}{\left\{\frac{L(\nu_1)}{L(\nu_0)}(1+z)\right\}}
+\end{equation}
+Definisco $k=\log_{10}{\left\{\frac{L(\nu_1)}{L(\nu_0)}(1+z)\right\}}$.
+\subsection{Misura della Distanza di Lumonosit\'{a}}
+\begin{equation}
+     \begin{cases}
+        D_L=r(z)(1+z)=\frac{cz}{H_0}\left\{1+\frac{1}{2}(1-q_0)z\right\}
+         \\
+        m-M=5\log{\left\{ \frac{D_L}{10^{-6}}\right\}-5}
+     \end{cases}
+\end{equation}
+La variabile $r$ la trovo dal calcolo di redshift con $ds^2=0$ sotituendo ottengo il \textbf{Modulo di Distanza} in funzione di z. Osservo che aumentando la distanza della \textbf{candela standard} aumenta $m$ quindi \'{e} pi\'{u} debole il flusso, in modo opposto se sono in un universo con densit\'{a} critica minore allora il flusso diventa maggiore. A grandi $z$ entra in gioco il fattore $q_0$ che fa separare le curve:
+\begin{itemize}
+    \item $m-M$ e $\Omega_0$ sono inversamente proporzionali
+    \item $m-M$ d al crescere di $\Omega_\Lambda0$ sono direttamete proporzionali
+\end{itemize}
+Il parametro $q_0$ allora lo stimo dall. SNIac\footnote{Stelle appartenenti a sistemi binari che esplodono con la massa costante di Chandrasekar ($M_{CH}=1.44 M_S$) raggiungendo il picco massimo di luminosit\'{a} a $10^{10} L_S$, la luminosit\'a equivalente ad una galassia.} misurando $z$ dagli spettri $m$ misurato da terra.\\
+Ho due  problemi:
+\begin{itemize}
+    \item Vedere la SN al picco: monitoro il cielo a frequenza della settimana cerco le diff. di L.
+    \item Non sono candele standard.
+\end{itemize}
+Tali oggetti non sono candele standard in quanto la luminosit\'{a} di picco dipente dalla metallicit\'{a} (quindi dal colore: rosse e metalliche, blu e poco metalliche) secondo la \textbf{relazione di Philips}. Risolvo il problema statisticamente attraverso \textbf{rinormalizzazione}, che mi porta ad avere le \textbf{curve di luce} sovrapponibili.
+\subsubsection{Enegia Oscura}
+Alcuni cosmologi non credono che $q_0<0 \rightarrow \Omega_{\Lambda0}>0$, ma credono che esista un fluido chiamato \textbf{Energia Oscura} con densit\'{a} di energia positiva ma pressione negativa .
+\begin{equation}
+     \begin{cases}
+        \rho_{\Lambda}=\frac{\Lambda}{4 \pi G}
+        \\
+        P_{\Lambda}=w\rho_{\Lambda}c^2; \quad w=-1
+     \end{cases}
+\end{equation}
+%%%%%%%%%%%%%%%%%%%%%SEC2: NUCLEOSINTESI COSMOLOGICA
+\newpage
+\section{Storia Termica dell'Universo }
+L'universo primordiale è approssimabile ad un plasma di particelle \footnote{Protoni, elettroni, neutrini e fotoni.} libere\footnote{Trascuro le interazioni perch\'{e} l'Univ. non \'{e} cos\'{i} caldo.} estremamente caldo; dunque per  $t=0$ equazione di Einstein \'{e} singolare: temp. e densit\'{a} sono infinite. Ipotizzo valga il \textbf{limite termodinamico} \footnote{Considero additive le quantit\'{a} estensive, in quanto cio\'{e} la densit\'{a} non \'{e} cos\'{i} alta}. Definisco una \textbf{funzione di distribuzione} \footnote{Non ho dip. dalla posizione perch\'{e} considero U. omogeneo e isotropo} che all'\textbf{equilibrio cinetico} sar\'{a} una Fermi-Dirac o Bose-Einstein in base alle particelle in questione.
+\begin{equation}
+     \begin{cases}
+        f(\textbf{p})=\frac{1}{\exp{\frac{E-\mu}{T}}\pm 1}
+        \\
+        \rho=\frac{g}{(2\pi)^3}\int E(\textbf{p}) f(\textbf{p})d\textbf{p}
+        \\
+        P=\frac{g}{(2\pi)^3}\int \frac{|\textbf{p}|^2}{3E} f(\textbf{p})d\textbf{p}
+     \end{cases}
+\end{equation}
+\subsection{Asimetria tra Materia e Antimateria}
+Considero il \textbf{limite relativistico} $T >> m$, dunque i fotoni della CMB.
+\begin{equation}
+     \begin{cases}
+        \rho_{BE}=\frac{\pi^2}{30}gT^4
+        \\
+        \rho_{FD}=\frac{7}{8}\frac{\pi^2}{30}gT^4
+     \end{cases}
+\end{equation}
+\begin{equation}
+    P=\frac{\rho}{3}
+\end{equation}
+\textbf{Teoricamnte}: abbiamo un miliardo di fotoni per ogni barione ($\eta=\frac{n_{b,0}}{n_{\gamma,0}}\sim 10^{-8}$). Dunque nell'universo primordiale \'{e} avvenuta la \textbf{rottura di simmetria}, di carica o parit\'{a}\footnote{Si studia attraverso la teoria dei campi}, si ha quindi materia in surplus rispetto ad antimateria. Dunque queste si annullano formando la CMB, ma rimane un po' di materia che costituisce l'univ. che vediamo.\\
+\textbf{Osservativamente}: il rapporto tra barioni e fotoni non rispecchia i calcoli, infatti $\eta^{-1}\sim 10^{18}$. Lo possiamo anche vedere dall'entropia per barione. Questo \'{e} un problema aperto della cosmologia.
+\subsection{Dipendenza delle grand. Termod. dalle Specie}
+Tramite normalizzazione per la $T_i$ delle grandezze termodinamiche, posso esprimere le variabili di riferimento attraverso una funzione della temperatura contenente il contributo di tutte le specie di particelle.
+\begin{itemize}
+    \item $u=\frac{E}{T_i}$
+    \item $x_i=\frac{m_i}{T_i}$
+    \item $y_i=\frac{\mu_i}{T_i}$
+\end{itemize}
+\begin{equation}
+    g_*(T)=\sum_i \left\{\frac{T_i}{T}\right\}^4 g_i+\frac{7}{8}\sum_i \left\{\frac{T_i}{T}\right\}^4 g_i
+\end{equation}
+\subsubsection{Caso Relativistico:}
+\begin{equation}
+     \begin{cases}
+        \rho_{R}=\frac{\pi^2}{30}T^4 g_*(T)
+        \\
+        P_R=\frac{\rho_{R}}{3}
+        \\
+        S_{R}=\frac{4}{3}\frac{\pi^2}{30}T^3 g_*^S(T)
+     \end{cases}
+\end{equation}
+\begin{equation}
+    g_*^S(T)=\sum_i \left\{\frac{T_i}{T}\right\}^3 g_i+\frac{7}{8}\sum_i \left\{\frac{T_i}{T}\right\}^3 g_i
+\end{equation}
+Ipotizzando il sist. univ. \textbf{chiuso} \\footnote{In quanto non scambia energia e materia con l'esterno.} dunque tale espansione \'{e} \textbf{adiabatica} allora l'entropia \'{e} conservata e scala con il fattore di scala $S\propto a^3$ che implica $T\propto(1+z)$.
+\subsubsection{Caso Non Relativistico:}
+Sfruttando il \textbf{$1^o$ Principio della termodinamica} e la conservazione del tensore E-I si ha $T\propto(1+z)^2$.
+\subsection{Disaccoppiamento}
+La condizione per avere disaccoppiamento  tra due specie di particelle \footnote{Ovvero quando non hanno l'energia sufficiente per interagire.} si ha quanto il tempo scala di espansione upera quello di collisione $\tau_H < \tau_{coll}$.
+\begin{equation}
+    \begin{cases}
+    \tau_{coll}\sim \Gamma^{-1}, \quad \Gamma=n\sigma|\textbf{v}|
+    \\
+    \tau_{H}\sim H^{-1}
+    \end{cases}
+\end{equation}
+\subsubsection{Disaccoppiamento di Neutrini}
+(\'{E} di aiuto pensare al disaccoppiamento come all'istante in cui non ho pi\'{u} interazione tra alcune specie di particelle.)\\
+\begin{equation}
+    \begin{cases}
+    e^{+} + e^{-}  \rightleftarrows \bar{\nu_e} + \nu_e 
+    \\
+    \nu_{e} + e^- \rightleftarrows \nu_{e} + e^-
+    \\
+    \nu_{e} + e^+ \rightleftarrows \nu_{\mu} + \mu^+
+    \end{cases}
+\end{equation}
+I neutrini interagiscono \textbf{debolmente} con parteicelle relativistiche ad alte energie. Usiamo la \textbf{sezione d'urto di Fermi} ($\sigma \sim G_F^2T^2$) per determinare il \textbf{rapporto tra tasso di collisione ed espanione}. Siccome $n\propto T^3$ e $H \propto T^2 $\footnote{Considerando il modello EdS in cui impongo conservazione del T. E-I.} allora ottengo $\frac{\Gamma}{H}\propto \left\{\frac{T}{1 MeV}\right\}^3$. Nel momento in cui $T<1MeV$ allora i neutrini si disaccoppiano dalla materia relativistica iniziando una \textbf{fase di espansione libera} in cui $T\propto a^{-1}$, sono i \textbf{neutrini rielici} che costituiscono il \textbf{CNB} (Cosmic Neutrino Background\footnote{Come la CMB ora la loro energia \'{e} del ordine di $eV$.}).\\
+Stimo ora la $T_{\nu 0}$ in funzione di $T_{\gamma 0}$. I fotoni raffreddandosi arrivano a $E<MeV$ non riusciranno pi\'{u} a creare coppie. Si perde l'equilibrio cinematico e la reazione sar\'{a} spostata verso \textbf{l'annichilazione} delle coppie e per conservazione dell'entropia\footnote{Poich\'{e} l'univ. si espande adiabaticamente.} questa si trasferir\'{a} ai fotoni incrementandone la temperatura. Dalla conservazione dell'entropia si ottiene $T_{\nu 0}=1.95K$. Tale risultato spiega perch\'{e} i neutrini rielici non siano ancora stati ossrevati, gli esperimenti sui neurini astrofisici sono settati sul $MeV$. La densit\'{a} numerica è $n_{\nu}\simeq 110 N_{\nu} cm^{-3}$ dove $N_{\nu}=3$ sono i tipi di neutrini.
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm, height=7cm]{images/Disaccoppiamento.jpg}
+    \caption{Disaccoppiamento dei Neutrini.}
+    \label{fig:neutrini}
+\end{figure}
+\subsection{Densit\'{a} Energetica del Fluido Relativistico}
+Dalle relazioni precedentemente trovate si ottiene che $\rho_{\nu}=68\% \rho_{\gamma}$ dunque non trascurabile nel parametro di denit\'{a} che risulta essere $\Omega_{\nu0}\sim 10^{-1}$ stimando $m_{\nu}=10eV$. Ma essendo la massa del neutirno $m_{\nu}=0.05eV$ risulta che non sia possibile che questi costituiscano la \textbf{materia oscura}.
+\subsection{Epoca dell'Equivalenza}
+Questa fase \'{e} l'istante in cui la densit\'{a} della materia ordinaria eguaglia quella relativistica. Prima domaniva la radiazione e poi da materia. Dalla cons. del T. E-I aveamo:
+\begin{itemize}
+    \item M. Ordinaria: $\rho a^3=k$
+    \item M. Relativistica: $\rho a^4=k$
+\end{itemize}
+\subsection{Nucleosintesi Cosmologica}
+Uno dei motivi per cui il Big Bang \'{e} universalmente accettato come modello dominante \'{e} perch\'{e} riesce a spiegare le abbondanze di \textbf{elementi leggeri} con un elevata precisione.
+\subsubsection{Premesse}
+\begin{itemize}
+    \item Osservazioni evidenziano che le abbondanze relative sono costanti per tutti gli oggetti astrofisici
+    \item '20 Composizione solare: $74\% H, \quad 23\% He$
+    \item '30 Scopro che le reazioni termonucleari producono elementi chimici.
+    \item '40 Gamov-Bethe-Alpher ipotizzano che il Big Bang produce elementi leggeri e le stelle quelli pesanti.
+    \item '50 Scopro che le stelle producono elementi pesanti attraverso le reazione termonucleari.
+    \item PB: Mancanza di elio e deuterio.
+\end{itemize}
+\subsubsection{Aspetti Quantitativi}
+Per descrivere la Nucleosintesi \'{e} necessario capire l'accoppiamento tra radiazione e materia in presenza di interazioni che variano il numero di particelle che ne prendono parte. Considero l'epoca in cui $1MeV<E<1GeV$ (limite non relativistico) in cui abbiamo processi di \textbf{interazione debole}:
+\begin{equation}
+    \begin{cases}
+    n \rightleftarrows p + e^{-} + \bar{\nu_e}
+    \\
+    \nu_{e}+n \rightleftarrows p +e^{-}
+    \\
+    e^{+} + n\rightleftarrows p + \bar{\nu_e}
+    \end{cases}
+\end{equation}
+E i \textbf{processi di scattering}:
+\begin{equation}
+    \begin{cases}
+    e^{-} + \gamma \rightleftarrows e^{-} + \gamma
+    \\
+    e^{+} + \gamma \rightleftarrows e^{+} + \gamma
+    \end{cases}
+\end{equation}
+Stiamo considerando queste reazioni all'\textbf{eq. cinematico} e \textbf{termodinamico} quindi a densit\'{a} e temperature tali da garantire reversibilit\'{a}. Considerando particelle non relativistiche la loro funzione di distribuzione sar\'{a} una Maxwell-Boltzmann. Dalla prima interazione debole si ottiene $\frac{n_n}{n_p} = \exp{-\frac{Q + \mu_n -\mu_p}{T}}$ tale che:\\
+\begin{equation}
+    \begin{cases}
+    T \sim 1MeV \rightarrow \frac{n}{p}=1
+    \\
+    T < 1MeV \rightarrow \frac{n}{p}<1
+    \end{cases}
+\end{equation}
+Per $T < 1MeV$ abbiamo il disaccoppiamento dei neutrini allora l'interazione sar\'{a} spostata verso la protonizzazione. Considerando la seconda interazione debole avremo $\frac{n}{p} \simeq \exp{-\frac{Q }{T}}$. All'epoca in cui i neutrini si disaccoppia anche i protoni e i neutroni escono dall'equilibrio, la frazione si congela a $\frac{n}{p} \simeq 0.27$, dunque si hanno 4 neutroni per protone. La maggior parte dei neutroni si lega formando elio mentre gli altri decadono ($\tau_n\sim 15$ min) diminuendo il rappoto $\frac{n}{p}$.\\
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm, height=7cm]{images/Catena.jpeg}
+    \caption{Catena di Interazioni.}
+    \label{fig:Int}
+\end{figure}
+Per arrivare alla sintesi dell'elio bisogna passare dalla sintesi del deuterio $E_D=2.23$ che a $T \sim 1MeV \sim 10^9 K$ per il gas di fotoni viene completamente distrutto \footnote{La Plankiana associata alla $T \sim 1MeV$ ha una coda che contiene fotoni a temperatura sufficente per scindere tutta la popolazione di deuterio presente.}; dunque per avere elio bisogna aspettare che la temperatura dell'universo si abbassi di un fattore $10K$ per permettere al deuterio di sopravvivere. Sfruttando le relazioni $t \propto a^2 \propto T^2$, in ipotesi di EdS in universo dominato dalla radiazione, stimiamo l'istante di tempo in cui si verificano queste interazioni $t\simeq 100 s$. Mentre la durata della nucleosintesi \'{e} $Delta_{BBN}\sim 15 min$, si nota che nel tempo la temperatura e il numero di neutroni scendono progressivamente \footnote{La BBN \'{e} influenzata dall'espansione e dalla densit\'{a} dell'universo.}.
+\subsection{Abbondanza di Elio}
+Considerando che:
+\begin{itemize}
+    \item Il tempo di inizio della BBN $t_s\simeq 400 s$ \footnote{Che corrisponde a $T\sim0.1 MeV$ mentre dovremmo utilizzare $t\sim 6.25 s$ che corrisponde a $T\sim0.8 MeV$, ma va bene perch\'{e} \'{e} una diffewrenza trascurabile.}
+    \item All'inizio della nucleosintesi $\frac{n}{p}=0.1265$.
+    \item Il $\tau_n = 614s$ \footnote{Fosse minore si avrebbero meno neutroni e dunque elio.}
+\end{itemize}
+Allora stimiamo l'abbondanza di elio essere $Y=\frac{m_{He}}{m_H+m_{He}}=0.23$. La fisica che determina l'abbondanza di elio \'{e} diversa dagli altri elementi in quanto \'{e} termodinamica e determinata da $\frac{n}{p}$ al tempo del disaccoppiamento dei $\nu$. In aggiunta all'elio vengo ptodotti altri elementi leggeri come He3 H3 e Li7, le cui abbondanze dipendono dalla rapidit\'{a} delle reazioni di interazione per formare i nuclei.\\
+Differenze tra BBN:
+\begin{itemize}
+    \item BBN: esplosiva e rapida
+    \item SN: a eq. termodinamico su tempi scala molto lunghi
+\end{itemize}
+\subsection{Abbondanza Elementi Leggeri}
+Grafico le abbondanze di elemeneti leggeri in funzione di $\eta$ densit\'{a} nemerica barionica per unit\'{a} di densot\'{a} numerica fotonica.\\
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=9cm, height=6cm]{images/Leggeri.jpeg}
+    \caption{Abbondanza di Elementi Leggeri.}
+    \label{fig:leggeri}
+\end{figure}
+\textbf{Oss1:}  L'abbondanza di \textbf{elio} pu\'{o} aumentare \footnote{L'aumento \'{e} esiguo dell'ordine del 5$\%$} due motivi:\\
+\begin{enumerate}
+\item  Aumentando i $\nu$ aumenta la densit\'{a} di energia dell'universo dunque rallentiamo l'espansione.
+\item Aumentando il tempo di decandimento $\tau_n$.
+\end{enumerate}
+\textbf{Oss2:} L'abbondanza di \textbf{deuterio} decresce di 3 ordini di grandezza.\\
+\textbf{Oss3:} L'abbondanza di \textbf{litio} decresce nella prima parte perch\'{e} funge da catalizzatore per la sintesi di elio e poi aumenta poich\'{e} viene sintetizzato.\\
+Fissando degli estremi per il parametro $\eta$ fisso un intervallo per  $\Omega_b$ da cui ricavo il limite superiore $\Omega_b<0.03$: dunque la densit\'{a} di barioni \'{e} circa il $3\%$ della densit\'{a} critica. Il risultato \'{e} coerente con la stima di $\Omega_0$ ottenuta attraverso matodo dinamico sugli ammassi di galassie \footnote{ $3\%$ materia ordinari, $15\%$ plasma e il restante \'{e} materia non luminosa}, quindi se la stima \'{e} corretta, allora il modello di Big Bang caldo \'{e} valido e dobbiamo ammettere l'esistenza di una materia non barionica non luminosa. L'unica particella nota che potrebbe costituire la materia oscura sarebbe il \textbf{neutrino} \footnote{ Dato che si \'{e} disaccoppiato non viene considerato come materia barionica.}, ma in tal caso le strutture cosmiche avrebbero un altra forma rispetto a quella attuale.
+\subsection{Misura delle Abbondanze degli Elementi Leggeri}
+Le abbondanze dei leggeri dipendono dal parametro cosmologico $\Omega_b$, per stimarlo correttamente devo eliminare la contaminazione da processi astrofisici.
+\subsubsection{Stima dell' Abbondanza di He4 Primordiale}
+\begin{itemize}
+\item L'elio  \'{e} prodotto nel nucleo di stelle nella MS
+\item Attraverso gli spettri possiamo determinare l'elio presente nella fotosfera che per\'{o} deriva dall'inquinamento della nube protostellare da stelle ormai morte
+\end{itemize}
+
+Dall'analisi delle \textbf{fotosfere di stelle di PopII} ($Z\propto 10^{-4}-10^{-3}$) si studia l'andamento di Y in funzione di Z , e successivamente facendo l'estrapolazione a $Z=0$.\footnote{Sarebbe pi\'{u} preciso studiare direttamente le stelle di PopIII ($Z=0$) ma essendo gi\'{a} morte non \'{e} possibile.}
+\subsubsection{Stima dell'Abbondanza di D Primordiale}
+\begin{itemize}
+\item L'abbondanza di deuterio \'{e} estemamente sensibile alla variazione di $\Omega_b$
+\item Viene distrutto nella nucleosintesi stellare in quanto catalizzatore per elio, dunque qello che vediamo ha origine primordiale
+\end{itemize}
+Esistono due modi per stimare l'abbondanza di deuterio:
+\begin{enumerate}
+\item \textbf{ISM}: da cui misuriamo $\frac{D}{H}\sim (3-4)10^{-5}$ \footnote{Non \'{e} detto che il mezzo interstellare non sia stato affatto inquinato.}
+\item \textbf{IGM}: dallo studio l'intensit\'{a} degli spettri dei quasar\footnote{Li scelgo perch\'{e} ono lontani quindi attraversano molto IGM.} (la cui densit\'{a} picca $z\sim 2$ ) determino,  in base alla profondit\'{a} della riga di assorbimento (Li$\alpha$), l'abbondanza di deuterio.
+\end{enumerate}
+I due metodi presentano risultati in accordo e inoltre la distribuzione di deuterio ha un alto frado di isotropia, questo fa pensare che sia di origine cosmologica.
+\subsubsection{Stima dell'Abbondanza di He3 Primordiale}
+Anche He3 \'{e} prodotto e distrutto nelle stelle dunque meno affidabile per la stima di $\Omega_b$. Pu\'{o} essere misurato nelle regioni HII (idrogeno ionizzato) $\frac{He3}{H}\sim (1-2)10^{-5}$.
+\textbf{Stima dell'Abbondanza di Li7 Primordiale}
+Il Li7 \'{e} un'elemento fragile sintetizzato nelle stelle e distrutto da molto fenomeni astrofisici:
+\begin{itemize}
+\item Dalle stelle in quanto \textbf{catalizzatore} di He4
+\item Per \textbf{spallazione} : collisione coi raggi cosmici
+\item Per collisione col \textbf{ISM freddo}
+\end{itemize}
+L'abbondanza di Li7 primordiale si stima dalle stelle di \textbf{PopII massicce} \footnote{Non uso stelle di massa inferiore a quella del sole perch\'{e} hanno inviluppo convettivo che porta il Li7 in profondit\'{a} ad alimentare le reazioni del nucleo alterandone le quantit\'{a}.} e risulta essere $\frac{Li7}{H}\sim 1.10 \cdot 10^{-10}$. Risulta non essere completamente in accordo con le previsioni del modello HBB: \'{e} circa 3 volte pi\'{u} basso. Questo si pensa essere dovuto a ragioni astrofisiche:
+\begin{enumerate}
+\item Difficolt\'{a} delle misure sperimentali
+\item Parte del Li7 potrebbe essere stato distrutto dalle \textbf{novae} in sistemi binari dalle \textbf{reazioni picnonucleari} \footnote{La temperatura non \'{e} cos\'{i} alta da far avvenire reazioni termonucleari.} causate dall' aumento repentino della densit\'{a} nel violento scambio di materia tra le compagne
+\end{enumerate}
+Una ragione cosmologica invece:
+\begin{enumerate}
+\item Il modello di Universo usato \'{e} omogeneo e isotropo mentre le piccole disomogeneit\'{a} potrebbero spiegare questa discrepanza
+\end{enumerate}
+\subsubsection{Conclusioni}
+Le abbondanze osservate di elementi leggeri primordiali risultano essere in buon accordo con le previsioni della nucleosintesi cosmologica. Questo fornisce un limite a $\Omega_b=0.03$ contro  $\Omega_0=0.3$; quindi gran parte della materia deve essere non barionica.
+\subsection{Epoca della Ricombinazione}
+Siamo in un ambiente dove $\frac{H}{He}\sim 12$ ($X\sim 74\%, \quad
+Y\sim 25\%$) a $T=(0.04 - 0.05)MeV$, per cui \'{e} possibile che avre la seguente interaz.:
+\begin{equation}
+       e^{-} + p \rightleftarrows H + \gamma
+\end{equation}
+La reazioine \'{e} all'equilibrio per $E_{\gamma}=13.6 eV$, l'energia di prima ionizzazione di H, mentre per $E_{\gamma}<13.6 eV$ si ha \textbf{ricombinazione}. L'\textbf{eq. di Saha} determina il grado di ionizzazione dell'epoca di ricombinazione:
+\begin{equation}
+\frac{1-X_e}{X_e^2}=\frac{4\sqrt{2} \zeta(3)}{\sqrt{\pi}}\eta \left\{ \frac{T}{m_e}\right\}^{\frac{3}{2}} \exp{\frac{B}{T}}
+\end{equation}
+
+Dove $B=m_p+m_e-m_H$ energia di legame e $X_e=\frac{n_p}{n_b}$: se $X_e=0$ ho \textbf{ric. totale}, se $X_e=1$ ho \textbf{ionizzaz. totale}. Siccome $T \propto 1+z$ anche  $X_e \propto z$. Considero la distrib. di \textbf{ MB non collisionale}.
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=9cm, height=6cm]{images/Ric1.jpeg}
+    \caption{Saha Non Collisionale}
+    \label{fig:ric1}
+\end{figure}
+Osservazioni:
+\begin{enumerate}
+\item  $z \uparrow \rightarrow X_e=1; \quad z \downarrow \rightarrow X_e=0 $
+\item $X_e$ e $\Omega_b$ sono inversamente prop. ($\eta \propto \Omega_b h^2$): la quantit\'{a} di materia decelera l'espansione favorendo la ricombinaz.
+\item Se per $ X_e<0.1$ H \'{e} totalmente ric. allora $T_{ric}=3276 K$ 
+\end{enumerate}
+Invece, considerando lo \textbf{scatterning Thomson}\footnote{Lo scattering T. diminuisce coll'espansione dell'univ., fino ad arrivare al disaccoppiamento tra radiazione e materia.}, che porterebbe a ionizzaz. di H, avrei una \textbf{distrib. MB collisionale}:
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=9cm, height=6cm]{images/Ric2.jpeg}
+    \caption{Saha Collisionale.}
+    \label{fig:ric2}
+\end{figure}
+Osservazioni:
+\begin{enumerate}
+\item \textbf{Freeze-Out}: congelamento della Fraz. di Ioniz., le curve non vanno a zero a causa dell'espansione il fmp diverge., la probabilit\'{a} di ricomb. diminuisce
+\item Nella regione asintotica $X_e$ e $\Omega_0$ sono direttamente pro. in quanto l'espansione lenta aumenta la prob. di avere scattering T.
+\end{enumerate}
+Calcoli pi\'{u} approssimati ci danno la $X_e$ di \textbf{freeze-out}: $X_e^{\infty}=2.7\cdot 10^{-5} \frac{(\Omega_0 h^2)^{\frac{1}{2}}}{\Omega_0 h^2}$.
+\subsection{Disaccoppiamento Radiazione-Materia}
+A grandi z l'universo \'{e} \textbf{otticamnte spesso} $\tau \simeq 0.37(\frac{z}{1000}^{14.25})$ dunque non lo possiamo indagare attraverso onde EM in quanto elettroni e fotoni fanno scattering Thomson. L'inerazione diminuisce con l'espandersi dell'univ. e a $z=1070$ abbiamo la \textbf{superficie di ultimo scatternig} che libera i fotoni delle CMB: abbiamo una \textbf{barriera di fotoni} che non ci permette di vedere a z pi\'{u} grandi.\\
+Considerando l'univ. come fluido relat. $T\propto a ^{-1}$ definiamo le seguenti epoche:
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=9cm, height=6cm]{images/Storia.jpeg}
+    \caption{Storia termica dell'universo primordiale.}
+    \label{fig:storia}
+\end{figure}
+\begin{enumerate}
+\item Disaccoppiamento radiazione-materia ($T=0.3 eV$)
+\item Eq. radiazione materia ($T=10 eV$)
+\item BBN ($T=0.1 MeV$)
+\item Annichilazione positroni-elettroni ($T=0.5 MeV$)
+\item Disaccoppiamento neutrini  ($T=1 MeV$)
+\item Transizione quark-adroni  ($T=1 GeV$)
+\item Unificazione forse elettrodeboli  ($T=10^3 GeV$)
+\item GUT: \textbf{periodo del deserto} le forze elettrodeboli e forti si unificano  ($T=10^{14}-10^{15} GeV$)
+\item Inflazione ($t<t_P=10^{-43}s$\footnote{Le particelle iniziano ad auto gravitare. Per calcolare il tempo di Planck metto insieme il collasso in caduta libera e il principio di indeterminazione. }, $T_P\approx 10^{32}$, $E_P\sim 10^{19}GeV$)
+\end{enumerate}
+Osservazioni:
+\begin{itemize}
+\item Per $E =1-10 TeV$ studio la fisica con LHC
+\item  Per $E >10 TeV$ non esistono esperimenti, ma ho la QFT come teoria
+\item Se voglio studiare l'inflazione necessito di una teoria quantistica della gravit\'{a}
+\item Da 1 a 4 \textbf{era radiativo}
+\item Da 6 e 7 \textbf{era leptonica}
+\end{itemize}
+\subsection{Epoca Inflattiva}
+Dopo il \textbf{periodo del deserto cosmico}, in cui non identifichiamo particelle note, abbiamo l'epoca inflattiva che si estende per un arco di tempo $10^{-34}s<t<10^{-32} s$. Nella suddetta si introducono delle \textbf{transizione di fase} con cui possiamo risolvere i problemi del modello HBB. Basta traslare il concetto di energia libera dalla termodianamica alla QFT: qui si ha il potenziale di interazione in funzione del campo scalare \footnote{Che ha come componente fisica il bosone di Higgs.}. Teniamo sempre presente che il sistema fisico tende alla configurazione a energia minima.
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=9cm, height=9cm]{images/Sombrero.jpeg}
+    \caption{Potenziale di interazione a sombrero.}
+    \label{fig:sombrero}
+\end{figure}
+Il potenziale effettivo varia in funzione della temperatura. Dunque analiziamo i casi:
+\begin{enumerate}
+\item $T>T_c$ il potenziale ha un minimo assoluto in $\phi=0$
+\item $T \sim T_c$  il sistema permette di assumere valori di $\phi$ pi\'{u} grandi (transizione di fase del $1^°$ ordine)
+\item $T<T_c$ in cui il minimo iniziale si trasforma in un massimo relativo, il sistema tende a due nuovi minimi (transizione di fase del $2^°$ ordine)
+\end{enumerate}
+Si verifica una \textbf{rottura di simmetria} che in QFT si esprime tramite una transizione di fase del $2^°$ ordine (GUT). Durante la transizione di fase abbiamo una pardita di energia che pu\'{o} interpretarsi come \textbf{calore latente} che fluisce nel sistema circostante.
+\subsection{Problemi del Modello HBB}
+Il modello di big Bang caldo risultava avere delle criticit\'{a} prima del tempo di Planck, che verranno risolte dall'introduzione delle transizioni di fase nell'epoca inflattiva negli inizi degli anni '80.
+\subsubsection{Problema dell'Orizzonte}
+Confrontando gli spettri di regioni dell'universo, sulle scale del CMB, si nota che regioni dell'universo che non dovrebbero essere mai entrate in contatto, causalmente non connesse \footnote{A causa di una distanza tra esse superiore a quella che ha potuto percorrere la luce nel tempo stimato dall'evento iniziale del Big Bang.}, hanno la stessa temperatura $T=2.7K$. Anche se l'universo non ha avuto il tempo di \textbf{termalizzare}.
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=7cm, height=7cm]{images/Orizzonte.png}
+    \caption{Problema dell'orizzonte cosmologico.}
+    \label{fig:orizzonte}
+\end{figure}
+\begin{equation}
+    \begin{cases}
+   r_H\sim \frac{2c}{H_0 \Omega_0^{\frac{1}{2}} (1+z)^{\frac{1}{3}}}
+    \\
+   \theta_H=\frac{r_H}{\frac{r}{1+z}}
+    \end{cases}
+\end{equation}
+Stimo l'angolo sotteso dell'orizzonte cosmologico, all'epoca del disaccoppiamento, essere $\theta_H\sim 2^°$ che significa che gli unici punti che si possono "parlare" al tempo del disaccoppiamento erano racchiusi in un'agolo di apertura $\theta_H$. Questo \'{e} in contraddizione con le misurazioni che rivelano equilibrio termodinamico.
+\subsubsection{Problema dei Monopoli Magnetici}
+La GUT negli anni '70 prevedeva che all'epoca del disaccoppiamento di forza forte e forza elettrodebole venissero prodotti dei difetti topologici:
+\begin{enumerate}
+\item 0-d \textbf{monopoli magnetici}
+\item 1-d stringhe
+\item 2-d pareti
+\end{enumerate}
+La massa dei monopoli \'{e} enorme $m_M \simeq 10^{16} m_p$  e la densit\'{a} numerica $n_M \gtrsim n_b $. Calcolando la densit\'{a} in monopoli nell'universo abbiamo un assurdo $\Omega_M\simeq10^{14}$, quindi o la GUT \'{e} sbagliata o c'\'{e} qualcosa che fa sparire i monopoli nell'universo.
+\subsubsection{Problema della Piattezza}
+\begin{equation}
+(\Omega^{-1}-1)=(\Omega_0^{-1}-1)10^{-60}\left\{\frac{T_P}{T}\right\}^2
+\end{equation}
+Dunque per $\Omega_0 \sim 0.3 $ allora $\Omega_P$ sar\'{a} diverso da 1 per una parte su $10^{60}$ per $z>>1$. Pertanto, all'epoca di Planck il "tuning" del valore di $\Omega^{-1}$ rispetto a 1 deve essere stato fatto con una precisione di $10^{60}$. \'{E} problematico avere un numero calibrato cos\'{i} bene vicino ad 1, in quanto si parla di densit\'{a} critica. In conclusione, ad altissimi z, $\Omega_P $ deve essere estremamente prossimo ad 1, richiedendo un “fine tuning” molto forte.
+\subsection{Modello Inflattivo}
+Nel 1981 Alan Guth ha cercato di risolvere questi problemi proponendo che ci sia stata una fase nell’universo primordiale in cui la densit\'{a} di energia fosse dominata da una componente di energia del vuoto con pressione negativa, in modo del tutto analogo alla dark energy che abbiamo gi\'{a} visto. Pertanto in quella fase, in cui la dinamica era guidata da una componente con propriet\'{a} simili a quelle della dark energy, si \'{e} avuta una espansione di tipo esponenziale, ovvero durante quella fase $a\sim \exp{\frac{t}{\tau}}$. L’inizio e la durata della fase inflattiva dipendono dalle propriet\'{a} del potenziale del campo scalare $\phi$\footnote{Inflatone.} che da origine alla componente di energia del vuoto che guida l’inflazione; perci\'{o} esistono vari modelli inflazionari.
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=7cm, height=7cm]{images/Inflation.png}
+    \caption{Modelli a confronto.}
+    \label{fig:inflazione}
+\end{figure}
+\begin{equation}
+\mathcal{L}_{\phi}=\frac{1}{2}\dot{\phi}^2-V(\phi,T)
+\end{equation}
+\begin{equation}
+\begin{cases}
+\rho_{\phi}=\frac{1}{2}\dot{\phi}^2+V(\phi,T)
+\\
+P=\frac{1}{2}\dot{\phi}^2-V(\phi,T)
+\end{cases}
+\end{equation}
+Per studiare la transizione di fase \'{e} utile studiare l'equzione di Eulero-Lagrange:
+\begin{equation}
+\ddot{\phi}+3\frac{\dot{a}}{a}\dot{\phi}+\frac{\partial V}{\partial \phi}=0
+\end{equation}
+Inoltre l'equazione di Friedmann si modifica tenendo conto anche di $\rho_{\phi}$ che \'{e} anch'esso funzione di $V(\phi,T)$ e sotto l'ipotesi $\rho_{\phi}>>\frac{kc^2}{a^2}$ abbiamo $(\frac{\dot{a}}{a})^2\simeq \frac{8\pi G}{3}\rho_{\phi}$. 
+\begin{enumerate}
+\item $T>T_c$
+\item $T\sim T_c \Rightarrow \dot{\phi} <<V_{\phi}$ "rotolamento lento" $\Rightarrow \rho_{\phi}\sim V_{\phi}\sim k$ inizia la transizione di fase dell'inflatone
+\item $T<T_c$ l'inflatone oscilla attorno al suo nuovo equilibrio e si conclude la transizione
+\end{enumerate}
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=7cm, height=7cm]{images/Scala.jpeg}
+    \caption{Andamento del fattore di scala.}
+    \label{fig:scala}
+\end{figure}
+\begin{enumerate}
+\item $t<10^{-34}$ a segue l'andamento del modello standard del BB
+\item $10^{-34}<t<10^{-32}$ si ha un espansione esponenziale, $a(t)\propto \exp{\frac{t}{\tau}}$ con $\tau=10^{-34}$ , l'universo aumenta di 43 ordini di grandezza $\frac{a_f}{a_i}=10^{43}$.
+\item $t>10^{-32}$ si conclude la transizione di fase
+\end{enumerate}
+In conseguenza ad una espanione adiabatica la T dovrebbe diminuire di 43 ordini di grandezza come la $T_{CMB}$, ma cos\'{i} non \'{e} inquanto la tansizione di fase rilasci il \textbf{calore latente}\footnote{L'energia del calore latente viene usata per produrre nuove particelle durante tutta la fase del rotolamento lento.} nell'universo, rappresentato dal termine di smorzamento $3\frac{\dot{a}}{a}\dot{\phi}$ , la temperatura risale di 43 ordini di grandezza questo fenomeno prende il nome di \textbf{reheating}.
+\subsection{Risoluzione dei Problemi di HBB}
+\subsubsection{Risoluzione Monopoli}
+Si fa partire l'inflazione dopo la formazione dei monopoli magnetici che vengono prodotti a $t=10^{-35}s$ (con una transizione di fase del periodo di GUT), si ha dunque un solo monopolo per universo visibile che ha probabilit\'{a} trascurabile di essere osservato da terra.
+\subsubsection{Risoluzione l'Orizzonte}
+Prima dell'inflazione le regioni che ora consideriamo separate causalmente erano connesse.
+\begin{equation}
+\begin{cases}
+\rho_{\phi}=k
+\\
+P=\frac{1}{2}\dot{\phi}^2-V(\phi,T), \quad \phi<< V(\phi)
+\end{cases}
+\end{equation}
+Dalla conservazione del tensore energia impulso ottengo una condizione sugli orizzonti cosmologici $(\frac{a_f}{a_i})^{-3(w+1)}>>\frac{T_f}{T_i}\cdot 10^{59}$ da cui conseguono:
+\begin{enumerate}
+\item Universo vuoto dominato da una costante cosmologica quindi $w=-1$
+\item  $\frac{a_f}{a_i}>>\frac{T_f}{T_i}\cdot 10^{30}$ in cui $T_f$ dipendendo dal \textbf{reheatinf}\footnote{Dunque dal modello inflazionario usato ha un possibile fluttuazione.}
+\item $\frac{T_f}{T_i}\in [10^{-5}, 1]$ consdsiderando il limite inferiore produce $T_f > 10^{14} GeV$ che \'{e} concorde con un modello di inflazione con $10^{-34}<t<10^{-32}$ che implica $\frac{a_f}{a_i}\sim 10^{43}$
+\end{enumerate}
+\subsubsection{Risoluzione della Piattezza}
+L'universo all'epoca di Planck pu\'{o} avere un valore di $\Omega_0$ arbitrario, ma poi questo verra\'{a} spinto a $\Omega_0=1$ dall'inflazione, indipendentemente dal valore iniziale di questo. Dalla conservazione del tensore E-I otteniamo $\frac{a_f}{a_i}>>(\frac{\Omega_i^{-1}-1}{\Omega_0^{-1}-1})^{\frac{1}{2}}\frac{T_f}{T_i}\cdot 10^{30}$  che per mette a $\Omega_0 \rightarrow 1$.
+\subsection{Problema della Costante Cosmologica}
+Il modello standard del Big Bang non riesce a spiegare il problema di \textbf{fine tuning} della costante cosmologica, inserita nei modelli di Friedmann come componente aggiuntiva. Secondo QFT l'universo nasce con una certa energia iniziale $\Lambda$ interpretata come l'energia del livello fondamentale, a cui \'{e} assocuato il campo scalare $\phi_{\Lambda}$ con il suo potenziale $V(\phi,T)$. Durante le \textbf{transizione di fase} parte di questa energia viene liberata tramite calore specifico, pu\'{o} essere stimata come $\Delta\rho_{V,i}\sim m_i^4$:
+\begin{enumerate}
+\item GUT: $m\sim10^{15} GeV$
+\item SUSY: $m\sim10^{3} GeV$
+\item E-W: $m\sim10^{2} GeV$
+\item Q-H: $m\sim10^{-1} GeV$
+\end{enumerate}
+Poich\'{e} l'energia del vuoto si conserva si stima essere $\rho_V(t_P)= \Delta \rho_V+\rho_V(t_0)$ con  $\Delta\rho_V\sim \sum_i \Delta\rho_{V,i} \sim 10^{60} GeV$ somma dell'energia liberata durante le transizioni e la densit\'{a} oggi a cui \'{e} associata la costante cosmologica. Stiamo mettendo insieme QFT e GR, allora $\rho_V(t_0)c^2=\Omega_{\Lambda0}\rho_{c0}c^2$ che troviamo mettendo assieme informazioni sull'espansione dell'universo (SNIa) e la piattezza (CMB):
+\begin{itemize}
+\item $\Omega_0-\Omega_{\Lambda0}=-0.53$ (SNIa)
+\item $\Omega_{\Lambda0}+\Omega_0=1$ (CMB)
+\item $\Omega_0=0.3$ (LSS)
+\end{itemize}
+Da cui $\rho_V(t_0)\simeq10^{-46} GeV^4$ e quindi $\rho_V(t_P)= \Delta \rho_V(1+ 10^{-106})$, quindi la densit\'{a} di energia del livello fondamentale associata al vuoto deve coincidere con la somma della densit\'{a} di energia di tutte le transizioni di fase che sarebbero avvenute successivamente a meno di una parte su $10^{106}$. Quindi o scopriremo una nuova transizione con $\Delta\rho_{V}\sim 10^{-46} GeV^{4}$ oppure resteremo con un acostante cosmologica problematica.
+\subsection{Risoluzione del Problema della Costante Cosmologica}
+Facciamo un breve escursus sulle identit\'{a} delle costanti in fisica:
+\begin{itemize}
+\item Costanti di \textbf{accoppiamento}: si determinano sperimentalmente (ex. \textbf{G})
+\item Costanti \textbf{additive}: associate a quantit\'{a} di cui mi interessa la differenza (ex. ddp)
+\end{itemize}
+Mentre la $\Lambda$ \'{e} una costante anomala inquanto non riconducibile a nessuana delle due categorie.
+\begin{itemize}
+\item GR: assume un ruolo geometrico o di sorgente a seconda di cdove compare nell'equazione di E.
+\item QFT: assumne significato di \textbf{densit\'{a} di energia del vuoto} produce un problema di fine tuning.
+\end{itemize}
+L'ipotetica soluzione sarebbe quella di associare ad essa un campo scalare  indicato come \textbf{energia oscura} \footnote{A pressione negativa e contenente il $70\%$ della densit\'{a} dell'universo ($\Omega_0+ \Omega_{\Lambda 0}=0.7$).}. Se si dimostrasse che $w=w(z)$, da osservazioni sull'evoluzione temporale delle strutture cosmiche, potremmo dimostrare l'esistenza del campo scalare energia oscura. Ma questo ci riporterebbe ad una visione Aristotelica dell'universo costituito prevalentemente dalla \textbf{quinta essenza}, che non posso vedere\footnote{Mopdelli di quinta essenza.}.\\ In conclusione ci comportiamo come se l'universo oggi avesse costante cosmologica, che introduciamo ad Hoc in modo da riporre i dati osservativi. Questo approccio ci da informazioni sulla validit\'{a} del modello.
+\subsection{Big Bang Nucleosynthesis}
+Gamow, Alpher and Herman proposed the hot Big Bang as a means to produce all of the elements. However, the lack of stable nuclei with atomic weights of 5 or 8 limited the Big Bang to producing hydrogen and helium. Burbidge, Burbidge, Fowler and Hoyle worked out the nucleosynthesis processes that go on in stars, where the much greater density and longer time scales allow the triple-alpha process (He+He+He = C) to proceed and make the elements heavier than helium. But BBFH could not produce enough helium. Now we know that both processes occur: most helium is produced in the Big Bang but carbon and everything heavier is produced in stars. Most lithium and beryllium is produced by cosmic ray collisions breaking up some of the carbon produced in stars.
+\subsection{Stages of the early universe}
+The following stages occur during the first few minutes of the Universe:
+\begin{itemize}
+\item Less than 1 second after the Big Bang, the reactions shown at right maintain the neutron:proton ratio in thermal equilibrium. About 1 second after the Big Bang, the temperature is slightly less than the neutron-proton mass difference, these weak reactions become slower than the expansion rate of the Universe, and the neutron:proton ratio freezes out at about 1:6.
+\item After 1 second, the only reaction that appreciably changes the number of neutrons is neutron decay, shown at right. The half-life of the neutron is 615 seconds. Without further reactions to preserve neutrons within stable nuclei, the Universe would be pure hydrogen.
+\item The reaction that preserves the neutrons is deuteron formation. The deuteron is the nucleus of deuterium, which is the heavy form of hydrogen (H2). This reaction is exothermic with an energy difference of 2.2 MeV, but since photons are a billion times more numerous than protons, the reaction does not proceed until the temperature of the Universe falls to 1 billion K or kT = 0.1 MeV, about 100 seconds after the Big Bang. At this time, the neutron:proton ratio is about 1:7.
+\item Once deuteron formation has occurred, further reactions proceed to make helium nuclei. Both light helium (He3) and normal helium (He4) are made, along with the radioactive form of hydrogen (H3). These reactions can be photoreactions as shown here. Because the helium nucleus is 28 MeV more bound than the deuterons, and the temperature has already fallen so far that kT = 0.1 MeV, these reactions only go one way.
+\item The reactions at right also produce helium and usually go faster since they do not involve the relatively slow process of photon emission.
+\item The net effect is shown at right. Eventually the temperature gets so low that the electrostatic repulsion of the deuterons causes the reaction to stop. The deuteron:proton ratio when the reactions stop is quite small, and essentially inversely proportional to the total density in protons and neutrons. Almost all the neutrons in the Universe end up in normal helium nuclei. For a neutron:proton ratio of 1:7 at the time of deuteron formation, 25\% of the mass ends up in helium.
+\end{itemize}
+
+\subsection{Abundance of light elements depending on the density of Baryons}
+The deuterium, He3, He4 and Li7 abundances depend on the single parameter of the current density of ordinary matter made out of protons and neutrons: baryonic matter. The graph above shows the predicted abundance vs. baryon density for these light isotopes as curves, the observed abundances as horizontal stripes, and the derived baryon density as the vertical stripe. A single value of the baryon density fits 4 abundances simultaneously. The fit is good but not perfect. There has been a dispute about the actual primordial helium abundance in the Universe: either 23.4 or 24.4 percent by mass, with both broups claiming 0.2 percent accuracy so this is 5 sigma discrepancy between the different observational camps. And a new measurement of the free neutron lifetime is 6 sigma smaller that the previous world average, giving a new prediction of the helium abundance of 24.6 percent. The observed lithium abundance in stars is less than the predicted lithium abundance, by a factor of about 2. But stars destroy lithium so it is hard to assess the significance of this difference. 
+\newpage
+\section{Formazione di Strutture Cosmiche}
+\subsection{Problemi della Formazione di Strutture}
+L'universo \'{e} omogeneo e isottropo su larga scala ovvero per $L>100Mpc$, mentre non \'{e} cos\'{i} su piccola scala in quanto abbiamo strutture come galassie e ammassi. Definendo il \textbf{contrasto di densit\'{a}} come  $\delta_{stuct}=\frac{\rho_{struct}-\bar{\rho}}{\bar{\rho}}$ con $\bar{\rho}\sim \rho_c$ si ha uno strumento che identifica quanto la struttura in considerazione \'{e} pi\'{u} densa della densit\'{a} critica. Vediamo che quando consideriamo i superammassi ($R\sim 10Mpc$ e $M\sim 10^{15}-10^{16} M_{\odot}$)  $\delta_{sup}\sim 1-10$. \\Le strutture cosmiche si pensa si siano originate dalle perturbazioni del campo di densit\'{a}, che attraverso l'instabilit\'{a} gravitazionale hanno aggragato materia ed evolvendo nel tempo hanno formato la struttura su larga scala. Due problemi sono:
+\begin{enumerate}
+\item Condizioni iniziali delle fluttuazioni: il modello inflattivo considera il \textbf{principio di indeterminazione} di Heisemberg come fenomeno alla base delle \textbf{fluttuazioni quantistiche pre-inflattive}
+\item Il tempo necessario all'instablitit\'{a} per evolvere\footnote{Se l'et\'{a} dell'universo \'{e} sufficiente per far sviluppare queste strutture?}: devo studiare il campo di velocit\'{a} della materia.
+\end{enumerate}
+\subsection{Crescita delle Perturbazioni in un Universo in Espansione}
+Trattiamo il campo di densit\'{a} come un\textbf{fluido autogravitante}, le cui codizioni inziali sono determinate dal periodo preinflattivo. Le equazioni cle lo descrivono sono 4:
+\begin{equation}
+\begin{cases}
+\frac{\partial \rho}{\partial t}+\nabla \textbf{v}=0 
+\\
+\frac{\partial v}{\partial t}+(\textbf{v}\cdot\nabla)\textbf{v}= -\frac{1}{\rho} \nabla P-\nabla \phi
+\\
+\nabla^2 \phi=4 \pi G \rho
+\\
+P=P(\rho)
+\end{cases}
+\label{eq:autog}
+\end{equation}
+Le equazioni \ref{eq:autog} \'{e} fornisco un approccio classico al problema, ovvero \'{e} un approccio newtoniano in quanto in limite di campo debole.($a=a_{bkg}+a_1, \quad a_1<<a_{bkg}$) trov\'{o} una soluzione .
+\begin{itemize}
+\item Per universo \textbf{statico} esistono solo soluzioni triviali a $\rho=0$
+\item Per universo in \textbf{espansione} esistono soluzioni a $\rho \neq 0$
+\end{itemize}
+ Di questo se ne occup\'{o} \textbf{Jeans}, da cui l'instabilit\'{a} gravitazionale prende il nome, il quale facendo uno sviluppo perturbativo al primo ordine dei campi in gioco trov\'{o} l'equazione che regola lo sviluppo temporele delle \textbf{perturbazioni di densit\'{a} $\delta$}in presenza di forze autograv., di pressione e variazione di coordinate proprie in ragione del fattore di scala:
+ \begin{equation}
+ \ddot{\delta}+2\frac{\dot{a}}{a}\dot{\delta}=\frac{1}{\rho_b a^2}\nabla_x^2P_1+\frac{1}{a^2}\nabla_x^2\phi_1
+ \end{equation}
+ In coordinate \textbf{proprie} avremo $\dot{\delta}=-\nabla_r \cdot \textbf{v}_1$; mentre in coordinate \textbf{coomoventi} $\dot{\delta}=-\nabla_{\textbf{x}}\cdot \textbf{u}$. Inserendo l'equazione di stato nell'ipotesi di \textbf{trasformazione adiabatica} per piccole perturbazioni ($\frac{dP}{d\rho}\sim \frac{P_1}{\rho_1}\sim c_s^2$) ottengo :
+ \begin{equation}
+ \ddot{\delta}+2\frac{\dot{a}}{a}\dot{\delta}=\frac{c_s^2}{a^2}\nabla_x^2\delta+4\pi G\rho_b \delta
+ \end{equation}
+ Equazione diff. in $\delta$ spazialmente omogenea, osservo che \'{e} simile all'equazione delle onde. Allora cerco soluzioni della forma di onda piana $\delta\propto \exp{i(\textbf{k}_c\cdot\textbf{x}-\omega t)}$ dove \textbf{x} e \textbf{$k_c$} sono vettori coomoventi.
+\subsubsection{Instabilit\'{a} di RJ Classica}
+La soluzione sar\'{a} una sovrapposizione di onede piane, per un \textbf{fluido statico e omogeneo} da $\textbf{v}_{b}=\dot{a}\textbf{x}$ imponendo staticit\'{a} $\textbf{v}_{bkg}\Rightarrow\dot{a}=0$ ottengo una relazione di dispersione:
+\begin{equation}
+\omega^2=c_s^2k^2-4\pi G\rho_b
+\end{equation}
+Con $\textbf{k}_c \cdot \textbf{x}=\textbf{k}\cdot \textbf{r}$. La soluzione varia in funzione di $\omega$:
+\begin{itemize}
+\item $\omega^2<0 \Rightarrow \delta \propto \exp{-i \omega t}$ (Oscilla a freq. Reale )
+\item $\omega^2>0 \Rightarrow \delta \propto \exp{\omega t}$ (Esponenziale a freq. Immag.)
+\end{itemize}
+Definiamo il numero d'onda di Jeans \'{e} $k_J^2=\frac{4\pi G\rho}{c_s^2}$ di conseguenza la \textbf{lunghezza d'onda di Jeans} $\lambda_J=\frac{2\pi}{k_J}=c_s(\frac{\pi}{G\rho_b})^{\frac{1}{2}}$ ci permette di esprimere $\Gamma=\pm \omega=\pm \left\{ 4\pi G\rho_b(1-\frac{\lambda_J}{\lambda})^2\right\}^{\frac{1}{2}}$ inverso del tempo scala del processo $\tau\propto (G \rho_b)^{-\frac{1}{2}}$:
+\begin{itemize}
+\item $\lambda<\lambda_J$ ($\Gamma \in \Re$): la perturbazione si \textbf{disperde} con un tempo scala $\tau$ in maniera esponenziale ($\exp{-\frac{t}{\tau}}$), i campi di velocit\'{a} sono spostati verso l'esterno.
+\item $\lambda > \lambda_J$ ($\Gamma \in \Im$): la perturbazione fa \textbf{collassare} il sistema i cui campi di velocit\'{a} sono diretti verso il centro.
+\end{itemize}
+\subsubsection{Instabilit\'{a} di RJ in un Mezzo in Espansione}
+\begin{equation}
+\ddot{\delta}+2\frac{\dot{a}}{a}\dot{\delta}=-\omega^2 \delta
+\label{eq:rjexp}
+\end{equation}
+Equazione di RJ classica. Impongo:
+\begin{itemize}
+\item Univ. polvere : $c_s^2k^2<<4\pi G\rho_b$
+\item EdS: $\frac{\dot{a}}{a}=\frac{2}{3t}, \quad 4\pi G\rho_b=\frac{2}{3t^2}$
+\end{itemize}
+\begin{equation}
+\ddot{\delta}+\frac{4}{3t}\dot{\delta}+ \frac{2}{3t^2}\delta=0
+\end{equation}
+La soluzione \'{e} del tipo $\delta \propto t^n$, sostituendo otteniamo l'equazione secolare che mi da i valori di $n=\frac{2}{3}, -1$, di cui ci interessa la soluzione crescente in quanto un EdS $\delta_+\propto a\propto (1+z)^{-1}$ qui la crescita della perturbazione \'{e} algebrica e non esponenziale come nella RJ classica. Per avere piccole perturbazioni si deve considerare un grande z, ci si aspetterebbe che le anisotropie della S\footnote{Brillanza superficiale.} del CMB siano comparabili conil contrasto di densit\'{a}  dei super ammassi in quanto risalenti allo stesso z circa. 
+\begin{itemize}
+\item $\delta_{SA}(z\sim 1000)\sim 10^{-3}$
+\item $\delta_{CMB}\sim 10^{-5}$
+\end{itemize}
+I dati osservativi differiscono di alcuni ordini di grandezza. Se partiamo dalle anisotropie della CMB le faccio evolvere a $z\sim 1000$ troverei $\delta_{SA} \sim 10^{-2}$ che \'{e} pi\'{u} grande di 	quello che calcolo, ho due ipotetiche soluzioni:
+\begin{itemize}
+\item le perturbazioni di densit\'{a} si sono evolute pi\'{u} \textbf{rapidamente} di quello che calcoliamo
+\item Oppure le perturbazioni del CMB \textbf{non sono connesse} con quelle della materia
+\end{itemize}
+Introducendo un ulteriore ipotesi, $\Omega_0=0\Rightarrow \rho_b=0$ (\textbf{Universo di Milne}) si ha:
+\begin{equation}
+\ddot{\delta}+\frac{4}{3t}\dot{\delta}=0
+\end{equation}
+La soluzione crescente $\delta_+\propto k$ \'{e} consistente, in quanto non essendoci materia la perturbazione non cresce; la soluzione negativa $\delta_- \propto t^{-1}$ fa disperdere la perturbazione .
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=7cm, height=7cm]{images/Milne.jpeg}
+    \caption{RJ in universo in espansione.}
+    \label{fig:milne}
+\end{figure}
+In definitiva le anisptropie del CMB sono connesse con le perturbazioni di densit\'{a} della materia ordinaria dal disaccoppiamento. Tuttavia la materia oscura costituisce $80\%$ della materia  dell'universo e dunque domina gravitazionalmente sulla materia ordinaria, le sue perturbazioni della densit\'{a} sono $\delta_{DM}\sim 10^{-3}$ non sono connesse alle anisotrie del CMB, in quanto diasaccoppiate. La GR e l'instabilit\'{a} di Jeans sono valide e spiegano la formazione di strutture cosmiche a patto che  esista una nuova forma di materia non barionica. La formazione di strutture cosmiche e l'abbondanza di elementi leggeri implicano la presenza di DM indipendentemente.
+\subsubsection{Soluzione Generale per Instabilit\'{a} di RJ}
+Patendo dall'equazone \ref{eq:rjexp} e risolvendola nel caso pi\'{u} generale possibile:
+\begin{itemize}
+\item $0<\Omega<1$
+\item $w=0$ (Polvere)
+\item $c_s^2k^2<<4\pi G\rho_b$ con $\rho_{b}\propto a^{-3}$
+\end{itemize}
+\begin{equation}
+\delta_+=\frac{5}{2} \Omega_0 \frac{\dot{a}}{a}\int_0^a \frac{da'}{(\dot{a'})^3}=D(a)
+\end{equation}
+Si def. $D(a)$ \textbf{fattore di crescita} \footnote{Come crescono le perturbazioni in teoria lineare.}. Questo integrale \'{e} analogo a quello che ho trovato nel caso della risoluzione all'eq. di Friedmann:
+\begin{equation}
+\begin{cases}
+t=\frac{\Omega_0}{2H_0(1-\Omega_0)^{\frac{3}{2}}}(\sinh{\theta}-\theta)
+\\
+a=\frac{\Omega_0}{2(1-\Omega_0)}(\cosh{\theta}-1)
+\end{cases}
+\end{equation}
+Il fattore di scala in un universo in espansione cresce con una potenza del tempo e non in maniera esponenziale, dipende da $\Omega(a)$ e $\Omega_{\Lambda }(a)$;  questo \'{e} normalizzato all'universo di EdS in quanto  $D(a)=1$.
+\begin{equation}
+D(a)=\frac{\frac{5}{2}\Omega(a)}{\Omega^{\frac{4}{7}}- \Omega_{\Lambda}(a)+(1+\frac{\Omega(a)}{2})(1+\frac{\Omega_{\Lambda}(a)}{2})}
+\end{equation}
+Un'altra funzione per il fattore di crescitae\'{e}:
+\begin{equation}
+f(a)=\frac{d\ln{D(a)}}{d\ln(a)}\simeq \Omega(a)^{0.6}+\frac{\Omega_{\Lambda 0}(a)}{70}\left\{1+\frac{\Omega(a)}{2}\right\}
+\end{equation}
+Si nota che il termine $\Omega_{\Lambda}$ non \'{e} da trascurare in quanto ha un ruolo nella formazione di strutture: se $\Lambda>0$ allora  \'{e} un termine \textbf{repulsivo} (negativo), che va aggiungersi al fattore di \textbf{attrito di Hubble}, questo comporta che le strutture cosmiche tendano a \textbf{congelarsi} prima rispetto ad un universo con $\Lambda<0$.
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=7cm, height=7cm]{images/PertGen.jpeg}
+    \caption{Perturbazioni di densit\'{a}.}
+    \label{fig:pertgen}
+\end{figure}
+\begin{enumerate}
+\item Le perturbazioni da piccole crescono progressivamente fino a congelarsi
+\item In un universo con $\Lambda\neq0$ succede la stessa cosa ma pi\'{u} rapidamente
+\end{enumerate}
+Osserviamo che  $\Omega_{\Lambda }(a)$ \'{e} trascurabile rispetto a $\Omega(a)$ 
+\subsubsection{Fluido relativistico}
+Studiamo l'evoluzione delle perturbazioni di densit\'{a} per un fluido relativistico. Si aggiunge una sorgente di energia legata alla $P=\frac{1}{3}\rho c^2$, dunque sostituiamo $\rho \rightarrow \rho +\frac{3P}{c^2}$ . Siccome l'equazione cambia abbiamo che $\lambda_J=c_s (\frac{3\pi}{8G\rho_b})^{\frac{1}{2}}$ che porta ad uno sviluppo delle perturbazioni differente.
+Se $z\rightarrow \infty$ allora $\Omega \sim 0$ siamo in EdS\footnote{L'universo primordiale, dominato da radiazione, \'{e} ben approssimabile da EdS.} con $\delta_+\propto t$ e $\delta_- \propto t^{-1}$ :
+\begin{itemize}
+\item $t<t_{eq}$ (U. di radiaz.): $a\propto t^{\frac{1}{2}}\Rightarrow \delta_+\propto a^2$ 
+\item $t>t_{eq}$ (U. di polvere): $a\propto t^{\frac{2}{3}}\Rightarrow \delta_+\propto a$ 
+\end{itemize}
+\subsubsection{Evoluzione delle Velocit\'{a} Peculiari}
+Le perturbazioni del campo di densit\'{a} sono accoppiate al campo di velocit\'{a}. Considerando l'equazione di Eulero con incognita la velocit\'{a} comovente (in U. polvere) posso dividerla in componenti rispetto al potenziale.
+\textbf{Moti Rotazionali}: $\dot{\textbf{u}}_{\perp}+2\frac{\dot{a}}{a}\textbf{u}_{\perp}=0 \Rightarrow u _{\perp}\propto a^{-2}$ quindi $v_{1\perp}= a u _{\perp}\propto a^{-1}$ 
+Le componenti rotazionali delle perturbazioni di densit\'{a} vengono spazzate via a causa dello \textbf{smorzamento} che subisce la componente rotazionale del campo di velocit\'{a} con l'espansione dell'universo. Le strutture cosmiche hanno per\'{o} un momento angolare che non \'{e} legato alle condizioni iniziali della velocit\'{a}, bens\'{i} generato dalle interazioni mareali durante l'evoluzione delle strutture stesse. Gli effetti del momento angolare iniziale \'{e} trascurabile in teoria lineare.
+\textbf{Moti Potenziali}: $\dot{\textbf{u}}_{\parallel}+2\frac{\dot{a}}{a}\textbf{u}_{\parallel}=-\frac{1}{a^2}\nabla\phi_1$. Sviluppo in onde piane:
+\begin{equation}
+\begin{cases}
+\phi_1 \propto \exp{i(k_cx-\omega t)}
+\\
+u_1 \parallel \nabla\phi_1 \propto i k_c \exp{i(k_cx-\omega t)}
+\end{cases}
+\end{equation}
+Considerando EdSin U. di polvere, sappiamo che $\delta\propto t^{\frac{2}{3}}$ dunque $v_{1\parallel} =\frac{\dot{\delta}}{k_c} \propto \frac{t^{\frac{1}{3}}}{k_c}=\frac{a^{\frac{1}{2}}}{k_c}$.\\
+\underline{Pert. Densit\'{a}}: cresce qualora la perturbaxzione \'{e} sovradensa.\\
+\underline{Campo di Velocit\'{a}}: le velocit\'{a} peculiari ($v_{1\parallel}\propto \frac{1}{k_c}$) non possono essere studiate localmente in quanto ho contributi derivanti dalle perturbazioni di densit\'{a} su larga scala. Le velocit\'{a} peculiari dipendono dalla scala spaziale delle perturbazioni che le generano ($\lambda_c=\frac{2\pi}{k_c}$).\\ 
+Se vogliamo giustificare la formazione di strutture cosmiche per instabilit\'{a} gravitazionale nel framework della GR troviamo che l'evoluzione di queste in un universo in espansione \'{e} lenta rispetto ad un universo statico.
+\subsubsection{Stima della Densit\'{a} della Velocit\'{a} Peculiare}
+\underline{Metodo 1:}
+\begin{equation}
+\begin{cases}
+\left|v_{1\parallel}\right|=\frac{a\dot{\delta}}{k_c}
+\\
+\delta(a, \textbf{x})=D(a) \delta_i(\textbf{x})
+\\
+f(a)\simeq \Omega^{0.6}
+\end{cases}
+\end{equation}
+Da cui facendo le dovute sostituzioni, e considerando larga scala ($k_c\sim r$ ), ottengo la velocit\'{a} propria che coincide con la velocit\'{a} peculiare coomovente $\left|v_{1\parallel}(t_0)\right|=r H_0\Omega_0^{0.6}\delta_0$. Ipotizzando che la massa \'{e} tutta contenuta nelle galassie $\delta$ lo stimo dalle galassie essere $\delta_g\simeq
+b\delta$ dove il bias \'{e} $b=b(t,z)$ che indica il rapporto tra il contrasto di densit\'{a} in galssie e quello totale.
+\begin{equation}
+\left|v_{1\parallel}(t_0)\right|=r H_0\frac{\Omega_0^{0.6}}{b}\delta_{g0}
+\end{equation}
+\begin{itemize}
+\item $\delta_{g0}$ lo misuro dalla distrib. di materia nello spazio
+\item $v_{1\parallel}(t_0) \equiv v_{pec}$ allora da Hubble  $v_{1\parallel}(t_0)=cz- H_0 d$ dalla TF e $D_n -\sigma_0$ prendo d
+\item b dalle anisotropie del CMB 
+\end{itemize}
+Ho un errore anche del 100\%.\\
+\underline{Metodo 2:}
+\begin{equation}
+\begin{cases}
+\dot{\delta}=-\nabla_r\textbf{v}_1
+\\
+\dot{\delta}=-\delta f(a)H(a)
+\end{cases}
+\end{equation}
+Ricavo $\delta$ la inserisco nell'equazione di Poisson da cui esplicitando la velocit\'{a} si ha $\textbf{v}_{1\parallel}=-\frac{2}{3}f(a)\frac{\nabla_r \phi_1}{H(a)\Omega(a)}$  e infine $\Omega^{-1}=\frac{3H^2}{8\pi G\rho_b}$.
+\subsubsection{Evoluzione delle Perturbazioni di Densit\'{a} Adiabatiche}
+Consideriamo la visione semplificata che i cosmologi avevano negli anni 70 in cui le galassie si formano per evoluzione delle perturbazioni di densit\'{a} di materia ordinaria e vanno a sormare i Super Ammassi, le strutture pi\'{u} grandi conosciute al tempo. Studio l'evoluzione delle perturbazioni di densit\'{a} \textit{adiabatiche} (quelle che ho visto fino ad ora) in un universo in espansione costituito da materia ordianaria.\\
+\textbf{Scale di spazio}: abbiamo \textit{l'orizzonte cosmologico} $r_H$ (tutto ci\'{o} che \'{e} dentro ha avuto tempo di comunicare con la coordinata in cui mi trovo) ; \textit{scala di perturbazione} $\lambda_J$. La perturbazione evolve se $\lambda<r_H \bigwedge \lambda>\lambda_J$ .\\
+\textbf{Scale di massa}: $M_J\propto \rho_B \lambda_J^3$ e $M_H\propto \rho_B r_H^3$. \\
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=7cm, height=9cm]{images/MassEv.jpeg}
+    \caption{Evoluzione masse (Diaferio).}
+    \label{fig:massev1}
+\end{figure}
+\underline{$t<t_{eq}$} (U. radiazione): \\
+\begin{itemize}
+\item $r_H\propto a^2 $ e $ \lambda_J\propto a^2$
+\item $\rho_{rad}\propto a^{-4}$ e $\rho_B\propto a^{-3}$
+\item $M_J\propto a^{3}$ e $M_H\propto a^{3}$
+\end{itemize}
+Il rapporto $\frac{M_J}{M_H}\simeq 26$ ci dice che $M_J$ sovrasta $M_H$ per\'{o} hanno la stessa dipendenza da $a$.  Le perturbazioni che hanno $\lambda>r_H$, poich\'{e} $M_J>M_H$, crescono con $\delta\propto t$. Queste sono fuori dall'orizzonte cosmologico, quindi dovrei trattarle usando la GR, ma all'ordine zero possiamo pensare che queste siano \textbf{congelate} alle condizioni iniziali. 
+\underline{$t_{eq}<t<t_{ric}$} (U. materia): \\
+\begin{itemize}
+\item $M_J\propto 10^{16} M_\odot\ $ e $ M_H\propto a^{\frac{3}{2}}$
+\end{itemize}
+Le perturbazioni entrano nell'orizzonte cosmologico nella fase matter dominant. La $M_J\sim 10^{15} M_\odot\ $ \'{e} costante poich\'{e} \'{e} proporzionale alla densita di radiazione e a qualla di materia in una certa potenza tale che si bilancino (funzione di $c_s$ che dipende da $\rho$ ). Le perturbazioni a $M<M_J$ sono in eq. stabile, in oscillano tra collasso grav. e $P_{rad}$, diventano onde sonore che nel tempo si smorzano a causa della perdita di energia adiabatica nell'esp. dell'U.; mentre le pert. con $M>M_J$ continuano a crescere con $\delta\propto a$.\\
+\underline{$t>t_{ric}$}: \\
+\begin{itemize}
+\item $M_J \propto a^{-\frac{3}{2}}$
+\end{itemize}
+Dopo la ricombinazione $M_J$ decresce col fattore di scala. Quando viene a mancare la $P_{rad}$ (che manteneva $M_J $costante) a causa del disaccoppiamento (che supongo essere istantaneo) $M_J=10^{5} M_\odot\ $, successivamente continua a decrescere come potenza di a. Quindi in questa fase le perturbazioni che prima erano stabili diventa instabili, le perturbazioni che possono collassare diventan $10^5 M_\odot\ $ pi\'{u} grandi.
+\begin{figure}[htp]
+\centering
+\includegraphics[width=8cm, height=9cm]{images/Massev.png}
+\caption{Evoluzione della massa di Jeans $M_J$, della massa racchiusa entro l’orizzonte $M_H$ e della massa di Silk $M_S$ in funzione del fattore di scala $a$. La massa di una perturbazione “galattica”, dell’ordine di $10^{11}M_\odot\ $  \'{e} rappresentata da una retta orizzontale in quel diagramma. La riga verticale tratteggiata separa il caso in cui la perturbazione collassa ($M_{gal}>M_J$ ) o oscilla generando onde sonore ($M_{gal <M_J}$ ). Si noti come le scale non corrispondano esattamente ai valori citati nel testo per cui la figura \'{e} da considerarsi come uno schema qualitativo.}
+    \label{fig:massev}
+\end{figure}
+\subsubsection{Processi dissipativi nell'epoca pre-ricombinazione: Silk damping delle perturbazioni adiabatiche}
+Per concludere l'evoluzione delle perturbazioni adiabatiche dobbiamo considerare i processi dissipativi che avvengono nell’epoca pre-ricombinazione. Se $\delta$ \'{e} su scale $\lambda<\lambda_J=2 R_H$ allora siamo in presenza di onde sonore adiabatiche dove la forza di richiamo per ogni oscillazione \'{e} data dalla pressione di radiazione; se i fotoni diffondono fuori dalla perturbazione $\delta$ allora le oscillazioni vengono smorzate poich\'{e} viene a mancare la forza di richiamo. Questo fenomeno di smorzamento prende il nome di “\textbf{Silk Damping}”. Considerando la teoria cinetica si ottiene che la lunghezza di “diffusione” dei fotoni al tempo t cio\'{e} il raggio massimo della perturbazione da cui sono in grado di uscire $r_D\propto \sqrt{lct}$ ha una massa di \textbf{Silk} $M_D\propto r_D^3\bar{\rho}_B= a^{\frac{3}{2}} t^{\frac{3}{2}}$ da valutare nell’epoca pre-ricombinazione:
+\begin{equation}
+\begin{cases}
+t<t_{eq} \quad M_D\propto a^{\frac{9}{2}}
+\\
+t>t_{eq} \quad M_D \propto a^{\frac{15}{4}}
+\end{cases}
+\end{equation}
+La massa di Silk rappresenta la massa massima delle perturbazioni che vengono smorzate a seguito del processo di dffusione dei fotoni;  lo smorzamento interessa tutte perturbazioni “stabili” ovvero che oscillano come onde sonore visto che si ha sempre $M_D<M_J$ . (Dal momento in cui la massa della perturbazione diventa $M_{gal} < M_D$ la perturbazione viene smorzata e la sua ampiezza va rapidamente a 0.)\\
+Nel momento della ricombinazione il valore di $M_J\sim 10^{16} M_\odot\ $ crolla istantaneamente \footnote{Se consideriamo ricombinazione istantanea.} a $M_J\sim10^{5} M_\odot\ $ continuando poi a decrescere con $ \propto a^{-\frac{3}{2}}$. Dopo la ricombinazione $M_D\sim 10^{12} M_\odot\ $ , Questo implica che tutte le perturbazioni di tutte le masse, tranne quelle delle galassie piu` massicce, sono state smorzate all’epoca della ricombinazione. Solo le perturbazioni su scale $M>M_{D,rec}$ sopravvivono dopo la ricombinazione. Le strutture su scale piu` piccole devono essersi necessariamente formate per frammentazione di queste grandi perturbazioni dopo la ricombinazione.
+Nel momento della ricombinazione il valore di $M_J\sim 10^{16} M_\odot\ $ crolla istantaneamente \footnote{Se consideriamo ricombinazione istantanea.} a $M_J\sim10^{5} M_\odot\ $ continuando poi a decrescere con $ \propto a^{-\frac{3}{2}}$.
+\subsubsection{Evoluzione delle Perturbazioni Adiabatiche in un Universo di Materia Oscura}
+Consideriamo un fluido di materia oscura non collisionale a $t_{infl}<t<t_{eq}$, in quanto le perturbazioni di materia oscura si disaccoppiano prima di quelle di materia ordinaria. In questo caso abbiamo \textbf{smorzamento di Landau}, le velocit\'{a} peculiari relativistiche\footnote{Rispetto ad un sistema di riferimento coomovente, si comportano come un fluido di fotoni.} delle particelle sono tali da vincere la velocit\'{a} di fuga dalla buca di potenziale ($v_{pec}>v_{fuga}$), dunque a certe scale (\textbf{free streaming}) la perturbazione viene spazzata via.\\
+\begin{equation}
+\begin{cases}
+r_{fs}= \int_0^{t_{nr}}\frac{v(t)}{a(t)} dt+\int_{t_{nr}}^{t_{eq}}\frac{v(t)}{a(t)} dt
+\\
+M_{fs}\propto r_{fs}^3 \bar{\rho_{\nu}}
+\end{cases}
+\end{equation}
+Stiamo considerando i neutrini come DM. Spezzo l'integrale in quanto abbiamo un periodo il periodo in cui sono relativistici e quello in cui sono non relativistici. Sotituendo $v\propto t^{-\frac{1}{2}}$ e $a\propto t^{\frac{1}{2}} $ approssimando $t_{eq}\sim t_{nr}$ ottengo $M_{fs}\sim 10^{14} - 10^{15} M_\odot\ $. La materia oscura, sotto queste ipotesi, domina l'evoluzione delle pert. di densit\'{a}. Tutte le perturbazioni a $M<M_{fs}$ vengono smorzate (spazzate via) appena queste entrano nell'orizzonte, la distribuzione di materia \'{e} sostanzialmente omogenea.\\
+In questo scenario le strutture si formano per \underline{frammentazione} di perturbazioni pi\'{u} grandi \textbf{Top-Down}. Le osservazioni sono per\'{o} in accordo con uno scenario \textbf{Bottom-Up} in cui le strutture si formano per \underline{aggregazione} di perturbazioni. In sostanza i neutrini non sono la componente dominte della DM, in quanto non influenzano la dinamica delle strutture a larga scala \footnote{Infatti produrrebbero delle strutture diverse da quello che noi conosciamo dalle osservazioni.}. Siccome $m_{\nu}\neq 0 $ questi comunque costituiscono la DM, poniamo un limite alla massa del neutrino $\Omega_{\nu}<\Omega_{lim}$.
+\subsubsection{Fluttuazioni Barioniche in presenza di DM}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+\section{Cosmologia Osservativa}
+\end{document}
