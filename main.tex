@@ -1187,12 +1187,61 @@ Ho la relazione $\delta \phi \propto k^{\frac{n-1}{2}}$ ($k$ \'{e} la scala):
 \item $n>1$: diverge a grandi $k$.
 \item $n=1$: costante.
 \end{itemize}
-Quindi $n=1$, $n=0.97$ per essere precisi, diventa una predizione dei modello inflattivo. L'inflazione risolve i 3 problemi del modello HBB, ma avendo espanso su scale cosmiche le fluttuazioni su scale quantistiche dell'universo primordiale si crea un campo di densit\'{a} perturbato con due peculiarit\'{a}:
+Quindi $n=1$, $n=0.97$ per essere precisi, diventa una predizione dei modello inflattivo. L'inflazione risolve i 3 problemi del modello HBB, ma avendo espanso su scale cosmiche le fluttuazioni su scale quantistiche dell'universo primordiale si crea un campo di densit\'{a} perturbato con 2 peculiarit\'{a}:
 \begin{enumerate}
 \item I contrasti di densit\'{a} $\delta$ sono delle variabili aleatorie gaussiane (ci basta $\sigma$ per descrivere il campo di densit\'{a}).
 \item Ha lo spettro di potenza di HZ.
 \end{enumerate}
-\subsubsection{}
+Osservo che le perturbazioni su scala maggiore dell'orizzonte c. ($r>r_H$) corrispondono a perturbazioni del potenziale g. $\phi$ che sono congelate nella metrica stessa.
+\subsubsection{Evoluzione delle Perturbazioni Adiabatiche nei modelli HDM e CDM}
+Come evolve lo spettro di potenza HZ per le perturbazioni di densit\'{a} ($P(k)=\mid \delta_k\mid^2\propto k$) all'epoca dell'equivalenza $t_{eq}$, quando inizia ad agire il collasso per instabilit\'{a} gravitazionale?
+Per un fluido non collisionale di materia oscura ho la scala di lunghezza FS che regola i processi, e dipende dalla velocit\'{a} peculiare delle particelle: cio\'{e} quando diventano relativistiche. Quando le perturbazioni entrano nell'orizzonte, in un universo in espansione, se $M<M_{FS}$ allora possono crescere per instabilit\'{a} gravitazionale. Lo spettro di $P(k)$ sar\'{a} cambiato soprattutto su piccole scale, causa della lunghezza d'onda di FS al tempo dell'equivalenza: $\lambda_{eq}=\frac{ct_{eq}}{a_{eq}}=13(\Omega_0 h^{-2})^{-1}Mpc$. In base al valore di $M_{FS} \propto r_{FS}^3$ ho una materia oscura diversa:
+\begin{itemize}
+\item $r_{FS}\sim \lambda_{eq} (=100 Mpc) \Rightarrow$ HDM (neutrini): quindi al di sotto di questa scala (ammassi di galassie $M_{FS}\sim 10^{14}-10^{15} M_\odot\ $) le perturbazioni vengono spazzate via, perch\'{e} le strutture su piccola scala si formano per frammentazione delle perturbazioni su larga scala. Lo spettro si smorza su  piccola scala ($k>>1$).
+\item $r_{FS}<< \lambda_{eq} (=1 Mpc) \Rightarrow$ CDM: la potenza delle perturbazioni decrescono a scale ancora pi\'{u} piccole, le particelle diventano non relativistiche molto presto. Il modello non essendo influenzato da $r_{FS}$ permette la crescita di perturbazioni su scale pi\'{u} piccole, permettendo una gerarchia \textbf{bottom-up}.
+\item $r_{FS}\sim \lambda_{eq} (=1 Mpc) \Rightarrow$ WDM: cade tra i due estremi.
+\end{itemize}
+\begin{figure}[htp]
+\centering
+\includegraphics[width=7cm, height=7cm]{images/cdm.jpeg}
+\caption{Evoluzione della potenza in funzione della scala per modelli di DM a confronto.}
+\label{fig:cdm}
+\end{figure}
+Ricapitolando l'ampiezza delle perturbazioni decrescono pi\'{u} rapidamente alle grandi scale (per tutti i modelli di DM). Secondo la gerarchia \textbf{bottom-up} le perturbazioni crescono alle piccole scale, in cui \textbf{viralizzano} (dynamical friction in cui lo scambio di energia avviene per interazione gravitazionale) nella fase non lineare evolvono verso configurazioni di equilibrio in cui le masse hanno la stessa distribuzione di velocit\'{a}. Successivamente comincia il processo di \textbf{merging} influenzato dalle perturbazioni su larga scala.\\
+Usando L'equazione cinetica di Boltzmann per un fluido di DM in un universo in espansione (nello spazio delle fasi) deriviamo lo spettro di potenza dell'epoca dell'equivalenza essere:
+\begin{equation}
+\begin{cases}
+P_{eq}(k)=T^2(k)P_i(k)
+\\
+T_{CDM}=\left\{   1+\big[ \frac{ak}{\Gamma}+(\frac{bk}{\Gamma})^{\frac{3}{2}}+(\frac{ck}{\Gamma})^2\big]^{\nu}  \right\}^{-\frac{1}{\nu}}
+\end{cases}
+\end{equation}
+Con $T^2(k)$ \textbf{funzione di trasferimento}, dipendente dal modello di DM che scegliamo quindi da $r_{FS}$, e $\Gamma=\Omega_0 h$ \textbf{parametro di forma}. \\
+Dal campo di densit\'{a} oggi abbiamo informazioni sul tipo di DM (se misuro $P\rightarrow T\rightarrow \Omega$). Quindi l'universo su larga scala ci da un sacco di informazioni sulla  materia presente nell'universo. Conosciamo la relazione $P_0(t,k)=D^2(t)P_{eq}(k,t'<t)$, ma abbiamo 3 problemi:
+\begin{enumerate}
+\item Vale solo su scale lineari cio\'{e} dove $\delta<<1$ ovvero su larga scala ($>10Mpc$).
+\item $D(t)$ contiene $\Omega_0$ quindi devo conoscere il modello cosmologico.
+\item Ho bisogno di conoscere la distribuzione su larga scala dell'universo, attraverso cataloghi di galassie (time consuming).
+\end{enumerate}
+\subsubsection{Crescita non lineare delle Perturbazioni di densit\'{a}}
+Zel'dovich propone un approccio analitico per studiare le perturbazioni di densit\'{a}:
+\begin{itemize}
+\item $1°$ approx. di Z. ($\delta <<1$): teoria lineare
+\item $2°$ approx. di Z. ($\delta>>1$): teoria non lineare, siamo su scale galattiche  a $\delta\sim 10^6$ \footnote{Permette di costruire un ponte tra la $P_{eq}$ e $P_0$ su scale non lineari.}.
+\end{itemize}
+Consideriamo l'evoluzione lineare delle perturbazioni di densit\'{a}:
+\begin{equation}
+\begin{cases}
+\delta(t)=D(t) \delta_i
+\\
+\dot{\mathbf{u}}+2\frac{\dot{a}}{a}\mathbf{u}=-\frac{1}{a^2}\nabla_x \phi_1
+\end{cases}
+\end{equation}
+Inserendo la velocit\'{a} peculiare $\mathbf{v}=a\mathbf{u}$ e tenendo conto dell'equazione di Poisson (riespressa considerando la conservazione del tensore E-I) $\nabla_x^2\phi_1=\nabla_x^2\phi_0 \frac{D}{a}$  abbiamo:
+
+
+
+
 
 
 
