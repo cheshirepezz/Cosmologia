@@ -1237,30 +1237,156 @@ Consideriamo l'evoluzione lineare delle perturbazioni di densit\'{a}:
 \dot{\mathbf{u}}+2\frac{\dot{a}}{a}\mathbf{u}=-\frac{1}{a^2}\nabla_x \phi_1
 \end{cases}
 \end{equation}
-Inserendo la velocit\'{a} peculiare $\mathbf{v}=a\mathbf{u}$ e tenendo conto dell'equazione di Poisson (riespressa considerando la conservazione del tensore E-I) $\nabla_x^2\phi_1=\nabla_x^2\phi_0 \frac{D}{a}$  abbiamo:
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Inserendo la velocit\'{a} peculiare $\mathbf{v}=a\mathbf{u}$ e tenendo conto dell'equazione di \textbf{Poisson} (riespressa considerando la conservazione del tensore E-I) $\nabla_x^2\phi_1=\nabla_x^2\phi_0 \frac{D}{a}$  integrando una volta si opttiene:
+\begin{equation}
+\mathbf{v}=-\frac{1}{a} \left [ \int \frac{D}{a}dt\right ]\nabla_x \phi_0 + \mathbf{v}_0
+\end{equation}
+Come condizione iniziale sulla velocit\'{a} consideriamo $v_0=0$. Si fa notare che l'approssimazione sta nel considerare la perturbazione del potenziale costante nel tempo. Introducendo il tempo conforme $d\tau=\frac{dt}{a}$ si risale alle coordinate:
+\begin{equation}
+\mathbf{x}=\mathbf{x}_0-\left [ \int \frac{d\tau}{a}\int D d\tau\right ]\nabla_x \phi_0 
+\end{equation}
+Rimaneggiando l'equazione di evoluzione delle perturbazioni notiamo:
+\begin{equation}
+\int \frac{d\tau}{a}\int D d\tau=\frac{\delta}{4 \pi G \rho a^3 \delta_i}
+\end{equation}
+In fine abbiamo il set di equazioni definitivo \footnote{Si nota la dipendenza dalle accelerazioni costanti iniziali.}:
+\begin{equation}
+\begin{cases}
+\mathbf{x}=\mathbf{x}_0- \frac{D(\tau)}{4 \pi G \rho a^3}\nabla_x \phi_0 
+\\
+\mathbf{v}=- \frac{\frac{dD}{d\tau}}{4 \pi G \rho a^3}\nabla_x \phi_0 
+\end{cases}
+\end{equation}
+Quindi data una perturbazione non sferica, immaginando che il campo di accelerazione sia costante nel tempo ($\nabla_x \phi_0 \sim cost$) \footnote{In realt\'{a} non \'{e} cos\'{i} perch\'{e} cambiando le posizioni della materia cambia anche il potenziale.} 
+\begin{itemize}
+\item le particelle si muoveranno lungo rette $v\propto \nabla\phi$ verso il contrasto di densit\'{a} pi\'{u} alto (direzione e velocit\'{a} costante). 
+\item Esistendo direzioni fissate ne avremo una che apporta materia pi\'{u} velocemente rispetto alle altre, quindi abbiamo una direzione di collasso preferenziale che porta alla formazione di un piano.
+\item Segue il fenomeno dello \textbf{shell crossing}, o pi\'{u} semplicemente attraversamento, ovvero quando le particelle attraversano il piano, la mappatura tra $x_0$ e $x$ non \'{e} pi\'{u} univoca.
+\end{itemize}
+Quindi la $1°$ approx. di Z. non \'{e} pi\'{u} valida, siamo nel regime non lineare. Possiamo estendere tale approccio anche al caso non lineare a contrasti di densit\'{a} molto elevati con risultati abbastanza accurati. Per\'{o} ora focalizziamoci sull'approccio computazionale usato gi\'{a} a partire dagli anni '80.
+\subsubsection{Soluzioni Numeriche}
+Le simulazioni numeriche costituiscono l'unico riscontro sperimentale di cui la cosmologia pu\'{o} avvalersi. Supponiamo ora  di avere una scatola piena di un fluido continuo, che rappresenta certamente l'universo. Esistono due differenti approcci con cui studiare il sistema:
+\begin{enumerate}
+\item \textbf{Euleriano (pti. densit\'{a})}: vale alle larghe scale ($100 Mpc$) e consiste nel rappresentare il campo di densit\'{a} attraverso dei punti griglia. \underline{Con:} bassa risoluzione poich\'{e} non vado al di sotto della maglia pi\'{u} fine. \underline{Pro:} basso tempo di calcolo. 
+\item \textbf{Lagrangiano (pti. massa)}: vale su piccole scale e consiste nel rappresentare la materia come punti massa. \underline{Con:} alti tempi di calcolo poich\'{e} devo risolvere N equazioni differenziali ($t\sim N^2$). \underline{Pro:} alta risoluzione nel caso di alta densit\'{a} di particelle. Queste si chiamano soluzioni a N-corpi.
+\item \textbf{Ibridi}: vengono mescolati i due precedenti approcci per ottenere il migliore risultato.
+\item \textbf{Tree code}: ho delle macro-particelle che aggiorno meno frequentemente.
+\end{enumerate}
+Chiaramente ognuno dei metodi citati dipende dalle variabili di sistema: N particelle, volume, risoluzione spaziale...
+\subsubsection{Problemi Numerici}
+Le condizioni iniziali su posizioni e velocit\'{a} costituiscono il vero problema delle simulazioni cosmologiche. Le posizioni iniziali devono descrivere il campo di densit\'{a} iniziale $\delta$ che espanso in serie di Fourier mi da i coefficienti $\mid \delta_k\mid^2=P(k)=T^2(k)P_i(k)$ esprime l'entit\'{a} della fluttuazione media. Quindi scelgo le condizioni iniziali in modo che mi riproducano lo spettro CDM $P(k)$.\\
+Ricapitolando, la teoria lineare funziona da $z\sim 10^3-10^4$ fino a $z\sim 20$ in cui abbiamo i primi fenomeni di attraversamento. Allora facciamo partire da qui la simulazione scegliendo le condizioni iniziali secondo il metodo descritto poc'anzi, e facendo evolvere il sistema fino a $z\sim 0$, quindi avr\'{o} delle strutture che comparo con le osservazioni.\\
+Prendiamo ad esempio le simulazioni \textbf{ibride}. Dobbiamo modellizzare 3 tipi di fluidi differenti:
+\begin{itemize}
+\item materia barionica stellare
+\item materia barionica gassosa
+\item materia non barionica (DM)
+\end{itemize}
+di cui ognuna ha delle propriet\'{a} fisiche differenti. Quella barionica \'{e} collisionale dunque:
+\begin{itemize}
+\item ha un termine di pressione
+\item si raffredda in modo \textbf{termico} e \textbf{radiativo}
+\item istabilit\'{a} gravitazionale: collassa formando degli oggetti stellari non collisionali
+\end{itemize}
+La materia oscura \'{e} non collisionale e interagisce solo \textbf{gravitazionalmente}, dunque non \'{e} soggetta a nessun tipo di "cooling", quindi non dissipa energia. Un'altra complicazione di cui si deve tenere conto \'{e} per giunta il processo di raffreddamento, che si sviluppa su scale atomiche. Quindi abbiamo un problema di \textbf{scala}, infatti passiamo da scale cosmiche a scale nanoscopiche.\\
+Le simulazioni a gravit\'{a} Newtoniana e CDM sono concordi con le osservazioni, abbiamo dunque delle strutture su larga scala comparabili. I neutrini dunque non potevano costituire la materi oscura dominante.
 \newpage
 \section{Cosmologia Osservativa}
+\subsection{Funzione di Correlazione a due punti}
+Introduciamo questo strumento per confrontare la distribuzione di materia su larga scala con quella prevista dai modelli di DM. Definiamo $dP=\boxed{\bar{n}^2}\boxed{(1+\Sigma(r))}dV_1 dV_2$ come la probabilit\'{a} di trovare una particella che definisce il volumetto $dV_2$ ad una distanza $r$ rispetto alla particella che definisce il volumetto $dV_2$. Il termine $dP\propto \bar{n}^2$ costituisce una Poissoniana, mentre il termine dipendente dalla scala $dP\propto(1+\Sigma(r))$ indica la di quanto ci si scosta dalla distribuzione, qui compare la \textbf{Funzione di Correlazione} $\Sigma(r)$.\\
+Cerco una correlazione tra $\delta$ e $\Sigma$ partendo dall'approssimazione a \textbf{fluido continuo} di una distribuzione di punti un cui la densit\'{a} \'{e} definita $\rho(\bar{x})=\bar{\rho}+ [1+\delta(\bar{x})]$. Arriviamo ad esplicitare la funzione di correlazione come funzione di coovarianza delle $\delta$ come
+\begin{equation}
+\Sigma(\bar{r})=\langle \delta(\bar{x}) \delta(\bar{x}+\bar{r})\rangle_{\bar{x}}
+\end{equation}
+Sostituendo lo sviluppo di Fourier otteniamo che codesta funzione \'{e} la \textbf{TF dello spetto di Potenza}.
+\begin{equation}
+\begin{cases}
+\Sigma(\bar{r})=\frac{1}{(2\pi)^3}\int P(\mathbf{k})\exp{-i\mathbf{k}\mathbf{r}}d^3k
+\\
+P(\mathbf{k})=\frac{1}{(2\pi)^3}\int \Sigma(r)\exp{i\mathbf{k}\mathbf{r}}d^3r
+\end{cases}
+\end{equation}
+\textit{Come confronto la distribuzione di galassie su larga scala con i modelli?}\\
+\textbf{Premesse}:
+\begin{itemize}
+\item Ho la distribuzione di galassie oggi a $z=0$, su scale non lineari.
+\item Il modello CDM ci da la distribuzione all'equivalenza.
+\end{itemize}
+Una via \'{e} quella delle simulazioni a N-corpi. Dunque parto dallo spettro inflattivo all'equivalenza che ottengo approssimazione lineare
+\begin{equation}
+\begin{cases}
+P_i(k)=Ak
+\\
+P_{eq}(k)=T_{mod}^2(k)P_i(k)
+\end{cases}
+\end{equation}
+Lo spettro di potenza nel regime non lineare \'{e} legato a quello nel regime lineare attraverso una funzione analitica, ricavata dalle simulazioni e dipendente dal modello usato. Questa approssimazione porta ad una sottostima dell'entit\'{a} della perturbazione, noi consideriamo l'approccio numerico.\\
+Per poi arrivare a determinare $P(k,t)$ (sapendo che $P=\mid \delta_k\mid^2$ e $\langle \delta^2 \rangle \propto D^2$), tramite il modello matematico proposto poc'anzi:
+\begin{enumerate}
+\item Trovo i punti attraverso la simulazione.
+\item Misuro la funzione di correlazione.
+\item TF ottenendo lo spettro di potenza a tutti i tempi.
+\end{enumerate}
+Dallo spettro di potenza che simulo riesco a risalire alla funzione di correlazione facendo la TF.
+\begin{equation}
+P_{gal}(k) \longrightarrow \Sigma_{gal}(r)
+\end{equation}
+Il modello CDM \'{e} in accordo con le osservazioni, le barre di errore lasciano spazio ad una possibile percentuale non nulla di WDM e HDM. Confrontando il modello su larga scala con le misurazioni possiamo stimare $\Omega_0$, che \'{e} contenuta infatti nella relazione dello spettro di potenza $T_{CDM}\propto (\Gamma=\Omega_0 h)$. Otteniamo un $\Gamma\sim 0.21$ tale che $\Omega_0 \sim 0.3$.
+\subsubsection{Insigth sull'evoluzione delle perturbazioni}
+Le strutture crescono linearmente con il tempo, indipendentemente dalla scala. Ma su scale sufficientemente piccole lo spettro di potenza stimato con approssimazione lineare \'{e} una sottostima di quello reale. Il processo di formazione delle strutture \'{e} altamente non lineare e questi effetti ne aumento il rate di crescita. Dall'approssimazione di Zel'dovich si evince che le particele si muovono su linee rette fino all'attraversamento, qui essendo pi\'{u} vicine risentono dell'attrazione gravitazione che le rallenta nel loro moto e le fa collassare. La non linearit\'{a} aumenta la rapidit\'{a} con cui una perturbazione cresce.
+\subsubsection{Misura della Funzione di Correlazione}
+Negli anni '80 l'universo era mappato unicamente a bassi $z$, si conosceva infatti la \textbf{sfera celeste}. Invece di misurare $\Sigma(r)$, funzione di correlazione che corrisponde ad una conoscenza della distribuzione della materia nello spazio, si riusciva a misurare $W(\theta)$ che corrisponde ad una separazione angolare degli oggetti. La relazione tra le due funzioni si ricava imponendo l'Isotropia nella distribuzione di galassie su larga scala: $dP=\bar{n}_{\Omega}^2 [1+W(\theta)] d\Omega_1 d\Omega_1$. Dopo alcuni passaggi si arriva alla definizione di $W(\theta)\propto \theta^{1-\gamma}$ che porta a $\Sigma(r)=(\frac{r}{r_0})^{-\gamma}$ con $\gamma=1.8$ e $r_0=5 \frac{Mpc}{h}$:
+\begin{itemize}
+\item $\Sigma \rightarrow 0$ per $r\rightarrow \infty$: le galassie hanno distribuzione Poissoniana su larga scala ($100Mpc$).
+\item $\Sigma \rightarrow 1$ per $r\rightarrow r_0$: ho una probabilit\'{a} doppia di trovare due galassie a questa distanza rispetto ad una distribuzione Poissoniana ($10Mpc$) \footnote{Questo ultima istanza \'{e} a favore della tesi sulla formazione delle strutture per instabilit\'{a} gravitazionale.}.
+\end{itemize}
+\underline{Metodo 1°}: una possibile stima di $\Sigma$ su scala galattica ($10Mpc$) consiste nel sovrapporre ad una distribuzione di galassie 2D reale una casuale, e studiare il rapporto tra il numero di coppie coppie di galassie a distanza $r$ reali e il rispettivo numero nella distribuzione casuale.
+\begin{equation}
+\begin{cases}
+1+\frac{DD(\theta)}{DR(\theta)}=W(\theta)
+\\
+1+\frac{DD(r)}{DR(r)}=\Sigma(r)
+\end{cases}
+\end{equation}
+\underline{Metodo 2°}: quando il numero di galassie su larga ($100Mpc$) scala diventa sufficientemente ampio, possiamo misurare $\Sigma$ nello spazio dei red shift, considerandola una velocit\'{a}, facendo uso della della legge di Hubble $cz=H_0d+v_{pec}$. Considerando due velocit\'{a} (misurate dallo spostamento verso il rosso dello spettro) di cui considero $v_2$ diretto lungo la los, si ha:
+\begin{equation}
+\begin{cases}
+\mathbf{s}=\mathbf{v}_1-\mathbf{v}_2
+\\
+\mathbf{l}=\frac{\mathbf{v}_1+\mathbf{v}_2}{2}
+\\
+\mathbf{\pi}=\frac{\mathbf{s}\cdot\mathbf{l}}{_l}
+\end{cases}
+\end{equation}
+Da cui si pu\'{o} facilmente calcolare $\mathbf{r}_p=\sqrt{s^2-\pi^2}$ distanza peculiare delle due galassie \textbf{ortogonale} alla los.
+\begin{equation}
+\int \Sigma(r_p, \pi) d\pi= W(r_p)=W(\theta)
+\end{equation}
+La funzione a due variabili $\Sigma(r_p, \pi)$ ha un eccesso di correlazione:
+\begin{itemize}
+\item $\pi>>1 \bigwedge r_p=0$
+\item $r_p>>1 \bigwedge \pi=0$
+\end{itemize}
+Questo quantifica un effetto che nello \textbf{spazio dei red shift} vediamo chiaramente. Considerando il \textbf{red shift survay} di un \textbf{ammasso} vediamo che assume una forma oblunga nella direzione della los. Questo fenomeno si spiega col fatto che le galassie in \textbf{inflow}, che cadono nella buca di potenziale, con $v_{pec} \parallel$ los (nel nostro riferimento solidale con l'ammasso) hanno velocit\'{a} nulla. Quindi a distanze proiettate piccole posso avere galassie con $\pi>>1$ (differenza di velocit\'{a} grande). Questo effetto di $\Sigma$ su piccola scala \'{e} dovuto alla presenza di sovradensit\'{a} che allunga i contorni 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \end{document}
