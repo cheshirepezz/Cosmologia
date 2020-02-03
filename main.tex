@@ -1362,12 +1362,56 @@ Da cui si pu\'{o} facilmente calcolare $\mathbf{r}_p=\sqrt{s^2-\pi^2}$ distanza 
 \begin{equation}
 \int \Sigma(r_p, \pi) d\pi= W(r_p)=W(\theta)
 \end{equation}
-La funzione a due variabili $\Sigma(r_p, \pi)$ ha un eccesso di correlazione:
+La funzione a due variabili $\Sigma(r_p, \pi)$ ha un \textbf{eccesso di correlazione}:
 \begin{itemize}
 \item $\pi>>1 \bigwedge r_p=0$
 \item $r_p>>1 \bigwedge \pi=0$
 \end{itemize}
-Questo quantifica un effetto che nello \textbf{spazio dei red shift} vediamo chiaramente. Considerando il \textbf{red shift survay} di un \textbf{ammasso} vediamo che assume una forma oblunga nella direzione della los. Questo fenomeno si spiega col fatto che le galassie in \textbf{inflow}, che cadono nella buca di potenziale, con $v_{pec} \parallel$ los (nel nostro riferimento solidale con l'ammasso) hanno velocit\'{a} nulla. Quindi a distanze proiettate piccole posso avere galassie con $\pi>>1$ (differenza di velocit\'{a} grande). Questo effetto di $\Sigma$ su piccola scala \'{e} dovuto alla presenza di sovradensit\'{a} che allunga i contorni 
+Tale risultato quantifica un effetto che nello \textbf{spazio dei red shift} vediamo chiaramente. Se consideriamo una \textbf{red shift survay} di un \textbf{ammasso} si nota che assume una forma oblunga nella direzione della los, alcune galassie sono spostate a distanze maggiori. L'ammasso \'{e} circondato da galassie che "cadono" nella sua buca di potenziale, queste assumono $v_{pec}$ molto pi\'{u} basse di quelle dell'ammasso (che calcoliamo attraverso il Teorema del Viriale), poich\'{e} hanno $v_{pec}\parallel$ alla los (nel nostro riferimento solidale con l'ammasso) per cui a noi risulter\'{a} molto piccola o anche nulla. Quindi la parte centrale \'{e} costituita da galassie appartenenti all'ammasso, mentre la parte esterna sono galassie in \textbf{inflow}. A distanze proiettate piccole posso avere galassie con $\pi>>1$ (differenza di velocit\'{a} grande). Questo effetto di $\Sigma$ su piccola scala \'{e} dovuto alla presenza di sovradensit\'{a} che allunga i contorni abbiamo un \textbf{eccesso di correlazione}. Questa distorsione dello spazio dei red shift \'{e} un effetto non lineare che possiamo sfruttare per ricavare la densit\'{a} dell'universo senza conoscere necessariamente la $v_{pec}$ in quanto ho $\pi$:
+\begin{equation}
+v_{pec}\propto \underbrace{\frac{\Omega^{0.6}}{b}}_{\beta}\delta_{gal}
+\end{equation}
+Basta avere una \textbf{galaxy red shift survay} e descriverne la sua distorsione per avere informazioni sulla densit\'{a} dell'universo, che risulta essere $\Omega\sim 0.3$ per $b\sim 1$.
+\subsubsection{Collasso di una Perturbazione a Simmetria Sferica}
+Considero una perturbazione sferica (3 autovalori uguali) con una discontinuit\'{a} a gradino \textbf{top hat}. Ne considero l'evoluzione temporale della perturbazione come se fosse un universo EdS dal momento che $\Omega(t_i)\sim1$ e $\Omega_{\Lambda0}(t_i)\sim 0$ in tempi remoti ($t_i>>1$), ed essendo omogenea viene descritta dall'equazione di Friedmann.
+\begin{equation}
+\begin{cases}
+\delta(t_i)=\delta_{+}(t_i) (\frac{t}{t_i})^{\frac{2}{3}}+\underbrace{\delta_{-}(t_i)(\frac{t}{t_i})^{-1}}_{\rightarrow 0}
+\\
+\big(\frac{\dot{a}}{a}\big)^2=H_i^2\big[\frac{a_i}{a}\Omega_p(t_i)+1-\Omega_p(t_i)\big]
+\end{cases}
+\end{equation}
+\begin{figure}[htp]
+\centering
+\includegraphics[width=7cm, height=7cm]{images/tophat.jpeg}
+\caption{Evoluzione della perturbazione sferica con discontinuit\'{a} top hat.}
+\label{fig:tophat}
+\end{figure}
+\begin{enumerate}
+\item La perturbazione si \textbf{espande}, come un univ. di F, raggiungendo il suo massimo (sotto condizione: $\dot{a}_{max}=0, t=t_{max}$):
+\begin{itemize}
+\item $\rho_p(t_{max})=\frac{3\pi}{32 G t^2_{max}}$
+\item $\delta_p(t_{max})\sim 4.6$ (la pert. ha una sovradensit\'{a} 5 volte maggiore alla densit\'{a} media dell'universo, la sua espanzione \'{e} rallentata dall'attraz. grav.).
+\end{itemize}
+\item La perturbazione \textbf{collassa} infatti abbiamo $\delta_i>\frac{1-\Omega_0}{\Omega_0(1+z_i)}$, ma non arriva mai a toccare $a_p=0$ (questo vale sia per perturbazioni barioniche e non):
+\begin{itemize}
+\item \textbf{materia barionica}: per il teorema del viriale nel momento in cui la materia collassa l'energia del potenziale gravitazionale viene trasformata in energia termica per irraggiamento, in dipendenza delle caratteristiche del potenziale, la pressione di radiazione si opporr\'{a} al collasso.
+\item \textbf{materia oscura}: l'energia gravitazionale in questo caso viene trasformata in energia cinetica, non essendo collisionale questa energia si conserva secondo $ E+W=cost $: abbiamo trasformazioni $K \rightleftarrows W$. Il sistema non riesce a contenere le particelle (come fenomeno di FS), si aggrega in gusci di materia a velocit\'{a} non omogenee, abbiamo fenomeno di shell crossing. 
+\end{itemize}
+\item Il sistema \textbf{virializza}, si stabilizza, a $t_{vir}=2t_{max}$ tutti i gusci hanno velocit\'{a} nulla ($K=0 \Rightarrow E_{vir}= -\frac{1}{2}\mid W_{vir}\mid $). Si pu\'{o} dimostrare che l'energia potenziale gravitazionale di una sfera omogenena \'{e} $W=-\frac{3}{5}\frac{GM^2}{R}$. La sovradensit\'{a} $\delta_p $ cresce col tempo poich\'{e} $\bar{\rho}$ decresce con l'espansione dell'universo, fino a toccare a $t_{vir}$ il valore di 178: cio\'{e} \'{e } 200 volte pi\'{u} densa dell'universo. Si \'{e} in forte non linearit\'{a}.
+\end{enumerate}
+\'{E} interessante notare come l'approssimazione lineare avrebbe fallito, infatti avrebbe predetto un $\delta_{lin}\sim 1.68$ che \'{e} un sottostima di 2 ordini di grandezza. Questo ci pu\'{o} tornare utile in quanto potremmo estrapolare i valori di $\delta_{lin}$ della perturbazione di densit\'{a}, le propriet\'{a} statistiche restano valide nonostante non sia corretto il campo di densit\'{a}.\\
+In generale il campo di densit\'{a} che evolve in un regime non lineare, alcune sovradensi\'{a} sono pi\'{u} virializzate di altri e le strutture su larga scala le connettono. 
+\subsubsection{Teoria di Press-Schechter e Funzione di Massa}
+Vediamo ora quante sovradensit\'{a} sono virializzate ad una certa epoca: quante oggetti di massa M per unit\'{a} di volume sono virializzati ad una certa epoca.
+
+
+
+
+
+
+
+
 
 
 
