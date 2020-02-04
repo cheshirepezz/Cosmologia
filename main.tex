@@ -1401,9 +1401,66 @@ Considero una perturbazione sferica (3 autovalori uguali) con una discontinuit\'
 \item Il sistema \textbf{virializza}, si stabilizza, a $t_{vir}=2t_{max}$ tutti i gusci hanno velocit\'{a} nulla ($K=0 \Rightarrow E_{vir}= -\frac{1}{2}\mid W_{vir}\mid $). Si pu\'{o} dimostrare che l'energia potenziale gravitazionale di una sfera omogenena \'{e} $W=-\frac{3}{5}\frac{GM^2}{R}$. La sovradensit\'{a} $\delta_p $ cresce col tempo poich\'{e} $\bar{\rho}$ decresce con l'espansione dell'universo, fino a toccare a $t_{vir}$ il valore di 178: cio\'{e} \'{e } 200 volte pi\'{u} densa dell'universo. Si \'{e} in forte non linearit\'{a}.
 \end{enumerate}
 \'{E} interessante notare come l'approssimazione lineare avrebbe fallito, infatti avrebbe predetto un $\delta_{lin}\sim 1.68$ che \'{e} un sottostima di 2 ordini di grandezza. Questo ci pu\'{o} tornare utile in quanto potremmo estrapolare i valori di $\delta_{lin}$ della perturbazione di densit\'{a}, le propriet\'{a} statistiche restano valide nonostante non sia corretto il campo di densit\'{a}.\\
-In generale il campo di densit\'{a} che evolve in un regime non lineare, alcune sovradensi\'{a} sono pi\'{u} virializzate di altri e le strutture su larga scala le connettono. 
+In generale il campo di densit\'{a} che evolve in un regime non lineare, alcune sovradensit\'{a} sono pi\'{u} virializzate di altri e le strutture su larga scala le connettono. 
 \subsubsection{Teoria di Press-Schechter e Funzione di Massa}
-Vediamo ora quante sovradensit\'{a} sono virializzate ad una certa epoca: quante oggetti di massa M per unit\'{a} di volume sono virializzati ad una certa epoca.
+Vediamo ora quante oggetti di massa M per unit\'{a} di volume sovradensi sono virializzati ad una certa epoca. Consideriamo $\delta$ una variabile aleatoria gaussiana che definisce la densit\'{a} di probabilit\'{a} delle perturbazioni di densit\'{a}:
+\begin{equation}
+\begin{cases}
+P(\delta)d\delta=\frac{1}{\sqrt{2\pi}\sigma(M)}\exp{-\frac{\delta^2}{2\sigma^2(M)}}d\delta
+\\
+F(M)=\int_{\delta_c}^{\infty}P(\delta)d\delta
+\end{cases}
+\end{equation}
+Dove la funzione $F(M)$ definisce la probabilit\'{a} che una perturbazione con $\delta>\delta_c$ di massa $M=\frac{4\pi}{3}\bar{\rho} R^3$ sia collassata all'epoca considerata. Il filtro gaussiano riduce l'esponenziale a 1 qualora la massa tenta a zero dunque la varianza esploda. Per mantenere la la normalizzazione (risolvendo l'integrale gaussiano) imponiamo un fattore moltiplicativo alla funzione che descrive il numero di oggetti di massa compresa tra $M$ ed $M+dM$ seguente:
+\begin{equation}
+N(M) dM=\boxed{2}\frac{\bar{\rho}}{M}\biggl|\frac{\partial F}{\partial M}\biggr| dM
+\end{equation}
+Facendo le dovute sostituzioni si arriva allo sviluppo dipendente anche da t:
+\begin{equation}
+N(M,t) dM=\frac{2}{\pi}\frac{\bar{\rho \delta_c}}{M \sigma^2(M,t)}\biggl|\frac{\partial \sigma}{\partial M}\biggr|\exp{-\frac{\delta_c^2}{2\sigma^2(M)}} dM
+\end{equation}
+La \textbf{funzione di massa} contiene una grande quantit\'{a} di informazioni:
+\begin{itemize}
+\item sullo spettro di potenza (informazione contenuta in $\sigma$)
+\item sull'evoluzione lineare delle perturbazioni, ci\'{o} mi da informazioni su $D(\Omega_0)$
+\end{itemize}
+Si deduce che la funzione di densit\'{a} permette di vincolare il modello cosmologico (dal punto di vista del modello di universo di F.) sia il modello sulle perturbazioni di densit\'{a} poich\'{e} ne vincola lo spettro di potenza. Mediando con un filtro gaussiano la varianza si ha $\sigma (M,t)=AD(t)M^{-\frac{n+3}{6}}$  da cui:
+\begin{equation}
+n(M)dM=\frac{1}{\sqrt{2\pi}}\frac{\bar{\rho}}{M^2}\biggl(1+\frac{n}{3}\biggr)\biggl(\frac{M}{M^{\star}}\biggr)^{\frac{n+3}{3}} \exp{-\frac{1}{2}\biggl(\frac{M}{M^{\star}}\biggr)^{\frac{n+3}{3}}} dM
+\end{equation}Confronto quantitativamente il modello della funzione di Press-Schechter in funzione del tempo considerando diversi modelli di universo di Friedmann (in figura riporto i valori limite.) con i dati osservativi.
+\begin{figure}[htp]
+\begin{minipage}[b]{8.5cm}
+\centering
+\includegraphics[width=8cm]{images/schechter.jpeg}
+\caption{Funzione di massa di Schechter.}
+\end{minipage}
+\ \hspace{2mm} \hspace{3mm} \
+\begin{minipage}[b]{8.5cm}
+\centering
+\includegraphics[width=8cm]{images/evD.jpeg}
+\caption{Evoluzione del fattore di scala.}
+\end{minipage}
+\label{fig:massfunc}
+\end{figure}
+Il modello Bottom-Up produce un $M^{\star}$ crescente nel tempo secondo la definizione $M^{\star}(t)=\frac{\delta_c}{AD(t)}^{-\frac{n+3}{6}}$; dipende da  $D(t)$ che a sua volta dipende dal parametro $\Omega_0$. Si pu\'{o} misurare la densit\'{a} dell'universo con la funzione di massa delle strutture cosmiche poich\'{e} posso stimare la funzione di massa oggi e ad un epoca precedente; la misura cambia di poco dunque l'universo ha bassa densit\'{a} $\Omega_0=0.3$ \footnote{Infatti nel caso di universo vuoto $\Omega_0=0\Rightarrow D(t)=cost \Rightarrow M^{\star} =cost$.}. Attenzione perch\'{e} $M^{\star}$ dipende anche dalla \textbf{normalizzazione dello spettro di potenza}, e quindi posso avere $A$ grandi e $D(t)$ piccoli, si dice che si ha \textbf{degenerazione} tra i due fattori. La normalizzazione $A$ viene anche indicata nel seguente modo $\sigma^2_R(M)=\int_0^{\infty}P(k) k^2W^2(k,R)dk$ in cui una volta fissata la scala di massa $M$ o quella di lunghezza $R$ (che sono analoghe), $P(k)=Af(k)$ definisce la normalizzazione. Convenzionalmente si sceglie la lunghezza caratteristica $R=8\frac{Mpc}{h}$ per gli ammassi di galassie che fissa la normalizzazione a $A \equiv \sigma_{8}\simeq
+1.7$. Tramite la funzione di massa possiamo misurare $\sigma_8$ che \'{e} degenere rispetto al fattore di crescita e quindi $\Omega_0$.
+
+\begin{figure}[htp]
+\centering
+\includegraphics[width=7cm, height=7cm]{images/degSD.jpeg}
+\caption{Degenerazione tra parametri $\sigma_8$ e $D$.}
+\label{fig:degSD}
+\end{figure}
+Questi coefficinti sono anticorrelati:
+\begin{itemize}
+\item Grandi fluttuazioni $\sigma_8 \uparrow$ e bassa quantit\'{a} di materia$\Omega_0 \downarrow$
+\item Molta materia $\Omega_0 \uparrow$ e basse fluttuazioni $\sigma_8 \downarrow$
+\end{itemize}
+Quando misuriamo la funzione di massa ne misuro la coppia. Quindi possiamo prendere indicativamente il valore medio per fissare questi parametri.\\
+Devo ancora fissare la sovradensit\'{a} critica che fissiamo al valore dell'epoca della virializzazione $\delta_c=\delta_{vir}=1.68$, sto usando parametri estrapolati dalla teoria lineare in regime non lineare. Ora abbiamo tutti i parametri necessari per calcolare la funzione di massa. La confrontiamo con l'andamento calcolato da una simulazione ad N corpi con le condizioni iniziali definite nei paragrafi prima. Abbiamo un buon accordo tra i valori simulati e quelli misurati, ma possiamo ottenere dei miglioramenti. A livello \textit{teorico } $\delta_c$ non \'{e} esattamente quello previsto, \'{e} sottostimati di alcuni ordini di grandezza; anche lo sdoppiamento delle variabili anticorrelate pu\'{o} essere pi\'{u} accurato, possiamo ottenere un miglioramento inferiore al $10\%$. Dal punto di vista \textit{osservativo} dobbiamo determinare la funzione di massa quindi dobbiamo conoscere la massa degli ammassi di galassie, quindi per prima cosa dobbiamo avere dei cataloghi di ammassi ottenuti dallo studio della distribuzione delle galassie (correggo il Malmquist Bias se misuro da terra nella banda X) e secondariamente stimarne la massa attraverso metodi di \textbf{lente gravitazionale}. Con i vari metodi si trova pi\'{u} o meno lo stesso valore di $\sigma_8$ e $\Omega_0$. La funzione di massa \'{e} simile a quella di Luminosit\'{a} in quanto i parametri sono correlati $L\propto M^{\gamma}$.\\
+Lo spettro di potenza deve essere collegato alle anisotropie del CMB, in quanto anisotropie del bagno di fotoni al disaccoppiamento radiazione materia.
+\subsubsection{Anisotropie del CMB}
+
 
 
 
