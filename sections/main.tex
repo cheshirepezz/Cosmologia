@@ -1287,7 +1287,7 @@ Le simulazioni a gravit\'{a} Newtoniana e CDM sono concordi con le osservazioni,
 \newpage
 \section{Cosmologia osservativa}
 \subsection{Funzione di correlazione a due punti}
-Introduciamo questo strumento per confrontare la distribuzione di materia su larga scala con quella prevista dai modelli di DM. Definiamo $dP=\boxed{\bar{n}^2}\boxed{(1+\Sigma(r))}dV_1 dV_2$ come la probabilit\'{a} di trovare una particella che definisce il volumetto $dV_2$ ad una distanza $r$ rispetto alla particella che definisce il volumetto $dV_2$. Il termine $dP\propto \bar{n}^2$ costituisce una Poissoniana, mentre il termine dipendente dalla scala $dP\propto(1+\Sigma(r))$ indica la di quanto ci si scosta dalla distribuzione, qui compare la \textbf{Funzione di Correlazione} $\Sigma(r)$.\\
+Introduciamo questo strumento per confrontare la distribuzione di materia su larga scala con quella prevista dai modelli di DM. Definiamo $dP=\bar{n}^2(1+\Sigma(r))dV_1 dV_2$ come la probabilit\'{a} di trovare una particella che definisce il volumetto $dV_2$ ad una distanza $r$ rispetto alla particella che definisce il volumetto $dV_2$. Il termine $dP\propto \bar{n}^2$ costituisce una Poissoniana, mentre il termine dipendente dalla scala $dP\propto(1+\Sigma(r))$ indica la di quanto ci si scosta dalla distribuzione, qui compare la \textbf{Funzione di Correlazione} $\Sigma(r)$.\\
 Cerco una correlazione tra $\delta$ e $\Sigma$ partendo dall'approssimazione a \textbf{fluido continuo} di una distribuzione di punti un cui la densit\'{a} \'{e} definita $\rho(\bar{x})=\bar{\rho}+ [1+\delta(\bar{x})]$. Arriviamo ad esplicitare la funzione di correlazione come funzione di coovarianza delle $\delta$ come
 \begin{equation}
 \Sigma(\bar{r})=\langle \delta(\bar{x}) \delta(\bar{x}+\bar{r})\rangle_{\bar{x}}
@@ -1306,16 +1306,23 @@ P(\mathbf{k})=\frac{1}{(2\pi)^3}\int \Sigma(r)\exp{i\mathbf{k}\mathbf{r}}d^3r
 \item Ho la distribuzione di galassie oggi a $z=0$, su scale non lineari.
 \item Il modello CDM ci da la distribuzione all'equivalenza.
 \end{itemize}
-Una via \'{e} quella delle simulazioni a N-corpi. Dunque parto dallo spettro inflattivo all'equivalenza che ottengo approssimazione lineare
+Una via \'{e} quella delle simulazioni a N-corpi. Si prende la distribuzione di materia alla  $t_{eq}$ e la si fa evolvere fimo a $z=0$, tenendo conto quindi dell'evoluzione non lineare delle perturbazioni di densit\'{a}. Dunque abbiamo uno spettro inflattivo, scegliendo un modello cosmologico, ad esempio CDM, questo ci fornir\'{a} una $T_{mod}(k)$ che ci permette di ottenere lo spettro all'equivalenza
 \begin{equation}
 \begin{cases}
-P_i(k)=Ak
-\\
 P_{eq}(k)=T_{mod}^2(k)P_i(k)
+\\
+P_i(k)=Ak
 \end{cases}
 \end{equation}
-Lo spettro di potenza nel regime non lineare \'{e} legato a quello nel regime lineare attraverso una funzione analitica, ricavata dalle simulazioni e dipendente dal modello usato. Questa approssimazione porta ad una sottostima dell'entit\'{a} della perturbazione, noi consideriamo l'approccio numerico.\\
-Per poi arrivare a determinare $P(k,t)$ (sapendo che $P=\mid \delta_k\mid^2$ e $\langle \delta^2 \rangle \propto D^2$), tramite il modello matematico proposto poc'anzi:
+Ora voglio ricavare $P(k,t)$, lo spettro in funzione del tempo, sapendo che $P=\mid \delta_k\mid^2$ con$\langle \delta^2 \rangle \propto D^2$:
+\begin{equation}
+P_{lin}(k, t>t_{eq})=D^2(t)P_{eq}(k)
+\end{equation}
+Attraverso la teoria lineare riesco ad arrivare fino a $z\sim20$, ma anche a $z=0$ se considero scale di $100 Mpc$. Lo spettro di potenza nel regime non lineare $P_{nl}(k)$ \'{e} legato a quello nel regime lineare attraverso una funzione analitica e si determina attraverso una simulazione ad N corpi, dipendente dal modello usato:
+\begin{equation}
+P_{nl}(k)=f[ P_{lin}(k)]
+\end{equation}
+Quindi la procedura \'{e}:
 \begin{enumerate}
 \item Trovo i punti attraverso la simulazione.
 \item Misuro la funzione di correlazione.
@@ -1325,8 +1332,8 @@ Dallo spettro di potenza che simulo riesco a risalire alla funzione di correlazi
 \begin{equation}
 P_{gal}(k) \longrightarrow \Sigma_{gal}(r)
 \end{equation}
-Il modello CDM \'{e} in accordo con le osservazioni, le barre di errore lasciano spazio ad una possibile percentuale non nulla di WDM e HDM. Confrontando il modello su larga scala con le misurazioni possiamo stimare $\Omega_0$, che \'{e} contenuta infatti nella relazione dello spettro di potenza $T_{CDM}\propto (\Gamma=\Omega_0 h)$. Otteniamo un $\Gamma\sim 0.21$ tale che $\Omega_0 \sim 0.3$.
-\subsubsection{Insigth sull'evoluzione delle perturbazioni}
+Facendo un'analisi quantitativa, cio\'{e} confrontando lo spettro di potenza prodotto dalla simulazione con quello che osservo, riesco a validare il modello di CDM. Il modello CDM \'{e} in accordo con le osservazioni, le barre di errore lasciano spazio ad una possibile percentuale non nulla di WDM e HDM: quindi la materia oscura dominante \'{e} fredda ma abbiamo anche una bassa percentuale di "warm" e "hot". Confrontando il modello su larga scala con le misurazioni possiamo stimare $\Omega_0$, che \'{e} contenuta infatti nella relazione dello spettro di potenza $T_{CDM}\propto (\Gamma=\Omega_0 h)$. Misurare lo spettro $P$ dalla distribuzione di gal su larga scala vuole dire misurare $\Gamma$ nel modello di CDM. Nelle galassie si musura $\Gamma\sim 0.21$ , $h\sim 0.7$ lo si misura dalle stelle variabili allora si ottiene $\Omega_0 \sim 0.3$ (questo \'{e} un metodo che non avevamo ancora usato per la misura di $\Omega_0$).
+\subsubsection{Recap sull'evoluzione delle perturbazioni}
 Le strutture crescono linearmente con il tempo, indipendentemente dalla scala. Ma su scale sufficientemente piccole lo spettro di potenza stimato con approssimazione lineare \'{e} una sottostima di quello reale. Il processo di formazione delle strutture \'{e} altamente non lineare e questi effetti ne aumento il rate di crescita. Dall'approssimazione di Zel'dovich si evince che le particele si muovono su linee rette fino all'attraversamento, qui essendo pi\'{u} vicine risentono dell'attrazione gravitazione che le rallenta nel loro moto e le fa collassare. La non linearit\'{a} aumenta la rapidit\'{a} con cui una perturbazione cresce.
 \subsubsection{Misura della funzione di correlazione}
 Negli anni '80 l'universo era mappato unicamente a bassi $z$, si conosceva infatti la \textbf{sfera celeste}. Invece di misurare $\Sigma(r)$, funzione di correlazione che corrisponde ad una conoscenza della distribuzione della materia nello spazio, si riusciva a misurare $W(\theta)$ che corrisponde ad una separazione angolare degli oggetti. La relazione tra le due funzioni si ricava imponendo l'Isotropia nella distribuzione di galassie su larga scala: $dP=\bar{n}_{\Omega}^2 [1+W(\theta)] d\Omega_1 d\Omega_1$. Dopo alcuni passaggi si arriva alla definizione di $W(\theta)\propto \theta^{1-\gamma}$ che porta a $\Sigma(r)=(\frac{r}{r_0})^{-\gamma}$ con $\gamma=1.8$ e $r_0=5 \frac{Mpc}{h}$:
