@@ -1532,51 +1532,77 @@ La fluttuazione in temperatura \'{e} indipendente dalla scala in EdS, e riproduc
 \subsection{Onde gravitazionali primordiali}
 Nell'universo inflattivo si ha anche generazione di onde gravitazionali, con un loro spettro specifico. Ci\'{o} crea delle perturbazioni aggiuntive su piccola scala, poich\'{e} sono sorgenti di campo. Le perturbazioni di cui si \'{e} parlato fino ad ora sono perturbazioni di tipo \textbf{scalare} dovute alle fluttuazioni di densit\'{a} di materia. Quelle dovute alle onde gravitazionali sono variazioni della metrica $\frac{\delta g_{\mu \nu}}{g_{\mu \nu}}$, sono perturbazioni \textbf{tensoriali} che si aggiungono alle anisotropie scalari nel CMB. Si misurano nella fluttuazione della polarizzazione dei fotoni del CMB.
 \subsection{Scale fisiche e angolari delle fluttuazioni}
-Quando entriamo nell'orizzonte cosmologico $r_H$ \'{e} necessario stabilire quali processi fisici hanno determinato eventuali anisotropie del CMB \footnote{Le perturbazioni acustiche si generano per conpetizione tra due effetti, la pressione dei fotoni che tende a cancellare le anisotropie ed il Silk Damping tende a farele collassare formando delle strutture sovradense. Queste oscillazioni risultano nei picchi dello spettro della CMB.} quindi devo studiare le scale rilevanti che sono 2:
-\begin{itemize}
-\item (Scala $r_H$)
-\item Scala di Jeans $\lambda_J$ caratterizza il collasso delle perturbazioni di densit\'{a}
-\item Scala delle perturbazioni acustiche 
-\end{itemize}
-La scala dell'\textbf{orizzonte cosmologico} 
+Quando entriamo nell'orizzonte cosmologico $r_H$ \'{e} necessario stabilire quali processi fisici hanno determinato eventuali anisotropie, vediamo adesso le varie scale spaziali che ci serviranno per l’analisi dello spettro di potenza della CMB.
+\subsubsection{Scala dell'orizzonte cosmologico}
 \begin{equation}
 r_H=3ct\simeq \frac{2c}{H_0 \Omega_0^{\frac{1}{2}}}(1+z)^{-\frac{3}{2}} \approx 200 (\Omega_0 h^2)^{-\frac{1}{2}} Mpc
 \end{equation}
 siamo a $z\rightarrow 1000$ appena dopo l'epoca della ricombinazione (nello spettro di potenza abbiamo considerato $l=100$). Anche qui entrano in gioco i parametri cosmologici. Su scale pi\'{u} piccole abbiamo la diffusione di Thomson tra i fotoni e gli elettroni liberi che si stanno ricombinando con i protoni per formare idrogeno neutro.\\
-La scala di \textbf{Jeans}
+\subsubsection{Scala di Jeans: collasso delle perturbazioni di densit\'{a} }
 \begin{equation}
 \lambda_J=\biggl(\frac{M_J}{\bar{\rho}_B}\biggr)^{\frac{1}{3}}\sim 50 \biggl(\Omega_b h^2\biggr)^{-\frac{1}{2}} Mpc
  \end{equation}
-Se prendiamo come massa di Jeans $M_J\sim 10^{16} M_\odot$. In questo caso $\lambda_J$ dipender\'{a} dalla denist\'{a} barionica. La perturbazione si propaga con una velocit\'{a} $c_S$ di fluido relativistico, definiamo la scala dell'\textbf{orizzonte acustico} data dallo spazio percorso durante la vita dell'universo
+Se prendiamo come massa di Jeans $M_J\sim 10^{16} M_\odot$. In questo caso $\lambda_J$ dipender\'{a} dalla denist\'{a} barionica. 
+\subsubsection{Scala delle perturbazioni acustiche }
+L’\textbf{orizzonte acustico} rappresenta la lunghezza d’onda massima su cui le onde sonore potevano aver avuto oscillazioni coerenti al momento della ricombinazione; in pratica rappresenta il limite superiore alla $\lambda$ delle onde acustiche al momento della ricombinazione.
+Definiamo la scala dell'\textbf{orizzonte acustico} nello strato di ultimo scattering come lo spazio percorso durante la vita dell'universo \footnote{La perturbazione si propaga con una velocit\'{a} $c_S$ di fluido relativistico, }
 \begin{equation}
 \lambda_{SH}\simeq c_S t_{eta'} \leq \frac{c}{\sqrt{3}}t_{eta'}\sim 30 \biggl(\Omega_b h^2\biggr)^{-\frac{1}{2}} Mpc
 \end{equation}
-l'et\'{a} dell'universo la calcoliamo con i modelli di Friedmann e dipende da $\Omega_0$. Tipicamente $\lambda_{SH}<\lambda_J$ ma dipende da $\frac{\Omega_b}{\Omega_0}$. Su scale pi\'{u} piccole di $\lambda_J$ la perturbazione oscilla con frequenza $\omega^2= c_S^2k^2-4\pi G\bar{\rho}_B\approx c_S^2k^2$ in cui si trascura la componente di materia ordinaria che viene dall'equazione di Poisson. Questo ce lo dice l'instabilit\'{a} di Jeans in cui le perturbazioni con $\lambda<\lambda_J$ collassano per instabilit\'{a} gravitazionale, quindi aumenta la pressione favorendo una nuova espansione per poi ricollassare in seguito ad una diminuzione della pressione oscillando come onde acustiche.\\
-Su scale al di sotto dell'orizzonte cosmologico  $r<r_H$ e al di sotto della scala di Jeans $\lambda<\lambda_J$ ci aspettiamo che le perturbazioni oscillino e che nel momento del disaccoppiamento radiazione materia, ipotizzando sia istantaneo, restino congelate in quella fase di oscillazione: se la perturbazione in quell'istante collassava allora rimarr\'{a} in quella fase, vale in viceversa. Si avranno una serie di perturbazioni su scale diverse.  Quindi per scale comprese tra $\lambda_{SH}<r<r_H$ le anisotropie che ci aspettiamo sono consistenti poich\'{e} la distribuzione di materia non \'{e} omogena al di sotto dell'orizzonte cosmologico. Ci saranno delle perturbazioni che si propagano in anisotropie della temperatura e saranno tipicamente correlate alle anisotropie sopra l'orizzonte cosmologico $\frac{\delta \rho}{\rho}\sim \frac{\Delta T}{T}$.
+l'et\'{a} dell'universo la calcoliamo con i modelli di Friedmann e dipende da $\Omega_0$. Tipicamente $\lambda_{SH}<\lambda_J$ ma dipende da $\frac{\Omega_b}{\Omega_0}$. Su scale pi\'{u} piccole di $\lambda_J$ la perturbazione oscilla con frequenza $\omega^2= c_S^2k^2-4\pi G\bar{\rho}_B\approx c_S^2k^2$ in cui si trascura la componente di materia ordinaria che viene dall'equazione di Poisson. L'instabilit\'{a} di Jeans afferma che le perturbazioni con $\lambda<\lambda_J$ sono in equilibrio stabile tra la forza di collasso e la pressione di radiazione, oscillano come onde acustiche. La scala $\lambda_{SH}$una scala ben pi\'{u} importante della lunghezza d’onda di Jeans ma \'{e} necessario tener conto di quest’ultima per la relazione di dispersione ovvero per capire se si hanno effettivamente onde sonore.\\
+\subsubsection{Strato di ultimo scattering}
+Il lasso di tempo nel quale avviene il disaccoppiamento $\Delta t_{dis}$ ($z_{dis}=1070$)  corrisponde ad una differenza di redshift $ \Delta z \simeq 120$. Cerchiamo adesso lo spessore comovente dello strato di ultimo scattering
+\begin{equation}
+dr= \frac{cdz}{H_0 \Omega_0^{\frac{1}{2}}z^{\frac{3}{2}}}
+\end{equation}
+Stiamo implicitamente definendo un'altra scala, abbiamo che $\Delta z$ corrisponde a
+\begin{equation}
+\Delta r_{LS}\simeq 10(\Omega_0 h^2)^{-\frac{1}{2}} Mpc
+\end{equation}
+la differenza spaziale che corrisponde alla periodo di disaccoppiamento radiazione materia, in sostanza coincide colla superficie di ultima diffusione, in realt\'{a} \'{e} un guscio spesso $\Delta r$ appunto, che osserviamo dalle anisotropie del CMB formate a $t\sim \Delta t_{dis}$:
+\begin{itemize}
+\item le perturbazioni con $r>\Delta r_{LS}$, cio\'{e} pi\'{u} grandi della dello spessore di ultimo scattering, rimangono congelate nelle loro fase di contrazione o espansione (noi vediamo solo quelle corrispondenti alla superficie di ultimo scattering).
+\item mentre quelle con $r<\Delta r_{LS}$ sono smorzate e non si traducono in anisotropie della $T$.
+(Poich\'{e} $\lambda_J \sim r_H$, tutte le perturbazioni con $r<r_H$ sono onde acustiche sulla superficie di ultimo scattering.)
+\end{itemize}
+
+
+
+
+
+
+
+\subsubsection{Scala di Silk damping}
+Smorzamento che al tempo del disaccoppiamento  prende il valori di $M_D=10^{12} M_\odot$, quindi
+\begin{equation}
+\lambda_D\sim \biggl( \frac{M_D}{\bar{\rho_B}}\biggr)^{\frac{1}{3}} \sim 5 (\Omega_b h^2)^{\frac{1}{2}} Mpc.
+\end{equation}
+Quindi lo spettro di potenza, corrispondente alle anisotropie, si \textbf{smorza} notevolmente fino ad andare a zero. 
+\subsection{Lo spettro di potenza delle fluttuazioni della CMB: lo spettro di potenza osservato
+}
+In breve:
+\begin{enumerate}
+ \item  Le fluttuazioni della CMB associate alle perturbazioni primordiali si sono originate a $z\sim 1090$ quando l'universo era appena entrato nella fase matter dominant.
+\item Le regioni con $r>r_{H}$ quindi con scale angolari $\theta>1.5^{\circ}$ non sono causalmente connesse quindi conservano le informazioni sullo spettro primordiale delle perturbazioni; le fluttuazioni sono congelate nella metrica.
+\item Su scale $\lambda_{SH}<r<r_H$ ci sono oscillazioni acustiche con smorzamento dovuto al Silk Damping e allo spessore dello strato di ultimo scattering.
+\item Le perturbazioni adiabatiche su scale $r<\lambda_{SH}$ vengono completamente smorzate dalla diffusione dei fotoni.
+\item L'orizzonte sonoro \'{e} la massima scala per avere delle oscillazioni coerenti; questa \'{e} anche legata al primo picco acustico.
+ \end{enumerate}
 \begin{figure}[htp]
 \centering
 \includegraphics[width=7cm, height=7cm]{images/cmbfluc.jpeg}
 \caption{Fluttuazioni della CMB.}
 \label{fig:cmbfluc}
 \end{figure}
-Ci aspettiamo che all'aumentare di $l$, quindi al diminuire della scala, si raggiunga un picco e poi avremo ulteriori oscillazioni perch\'{e} le perturbazioni sotto l'orizzonte acustico oscillano. Il primo picco si ha in corrispondenza di $l_{SH}\sim \frac{1}{\lambda_{SH}}$ , in cui $\lambda_{SH}$ corrisponde ad una singola oscillazione tra l'entrata nell'orizzonte e la ricombinazione. In termini angolari la scala delle oscillazioni acustiche \'{e} $\theta=\frac{\lambda_{SH}^{prop}}{D_{A}}=\frac{\lambda_{SH}^{com}}{D}\approx 0.3 \Omega_0^{\frac{1}{2}}deg$, in cui la $D$ la ricavo dalla formula di Mattig, implicitamente sto considerando grandi $z$ e costante $\Lambda=0$. Siccome $\theta \sim \frac{\pi}{l}$, $l_{SH}$ corrisponde a questo $\theta$ quindi dipender\'{a} da $\Omega_0$: se il parametro cosmologico $\Omega_0 \uparrow$ \'{e} pi\'{u} grande allora il picco si sposta a scale pi\'{u} piccole $l\uparrow$, vale il viceversa. Facendo il conto accurato con $\Lambda \neq 0$  vediamo che  $\Omega_{k0}=\Omega_{\Lambda_0}-1$ quindi la\textit{posizione del picco dello spettro delle anisotropie del CMB \'{e} sensibile alla geometria dell'universo perch\'{e} dipende dalla distanza angolare}. Quindi possiamo usare la distanza angolare per misurare i parametri cosmologici , se si ha un oggetto di cui conosciamo le dimensioni proprie. Il nostro oggetto di riferimento sar\'{a} $\lambda_{SH}$ di cui conosciamo la distanza coomovente e propria alla ricombinazione. \textit{In sostanza il primo picco \'{e} una stima molto sensibile della ciurvatura spaziale dell'universo, che combinata con le osservazioni di Planck sul CMB si ottiene che la geometria spaziale dell'universo \'{e} euclidea quindi $\Omega_0+\Omega_{\Lambda0}=1$.}. Un altra relazione $\frac{\Omega_0}{2}-\Omega_{\Lambda0}=-\frac{1}{2}$, ci arriva dallo studio delle Supernovae, la cui sovrapposizione media a zero le anisotropie in temperatura in quanto alcune si contraggono e altre si espandono. I valori delle costanti che determiniamo sono concordi con le misure di massa e gli altri metodi visti in precedenza. Il disaccoppiamento ($z_{dis}=1070$) per\'{o} no \'{e} istantaneo, il lasso di tempo corrisponde ad una differenza di redshift $\Delta t_{dis}\rightarrow \Delta z \simeq 120$. Siccome $dz$ e $dr$ sono legati dalla relazione (per grandi $z$)
-\begin{equation}
-dr= \frac{cdz}{H_0 \Omega_0^{\frac{1}{2}}z^{\frac{3}{2}}}
-\end{equation}
-Stiamo implicitamente definendo un'altra scala, abbiamo che $\Delta z$ corrisponde a
-\begin{equation}
-\Delta r\simeq 10(\Omega_0 h^2)^{-\frac{1}{2}} Mpc
-\end{equation}
-la differenza spaziale che corrisponde alla periodo di disaccoppiamento radiazione materia, in sostanza coincide colla superficie di ultima diffusione, in realt\'{a} \'{e} un guscio spesso $\Delta r$ appunto, che osserviamo dalle anisotropie del CMB formate a $t\sim \Delta t_{dis}$:
-\begin{itemize}
-\item le perturbazioni con $r>\Delta r$, cio\'{e} pi\'{u} grandi della dello spessore di ultimo scattering, rimangono congelate nelle loro fase di contrazione o espansione.
-\item mentre quelle con $r<\Delta r$ le perturbazioni non si traducono in anisotropie della $T$.
-\end{itemize}
-Quindi lo spettro di potenza, corrispondente alle anisotropie, si \textbf{smorza} notevolmente fino ad andare a zero. Questo fenomeno si combina con lo smorzamento di Silk descritto dalla scala tipica che per valori di $M_D=10^{12} M_\odot$ vale
-\begin{equation}
-\lambda_D\sim \biggl( \frac{M_D}{\bar{\rho_B}}\biggr)^{\frac{1}{3}} \sim 5 (\Omega_b h^2)^{\frac{1}{2}} Mpc.
-\end{equation}
-\textit{Questa scala, corrispondente al secondo picco, dipende da $\Omega_b$. Al di sotto di questa lo spettro delle anisotropie si annulla per la combinazione dell'effetto qui descritto in combinazione con lo smorzamento Silk (siamo a $l\sim 2500-3000$).}\\
+Su scale al di sotto dell'orizzonte cosmologico  $r<r_H$ e al di sotto della scala di Jeans $\lambda<\lambda_J$ ci aspettiamo che le perturbazioni oscillino e che nel momento del disaccoppiamento radiazione materia, ipotizzando sia istantaneo, restino congelate in quella fase di oscillazione: se la perturbazione in quell'istante collassava allora rimarr\'{a} in quella fase, vale in viceversa. Si avranno una serie di perturbazioni su scale diverse.  Quindi per scale comprese tra $\lambda_{SH}<r<r_H$ le anisotropie che ci aspettiamo sono consistenti poich\'{e} la distribuzione di materia non \'{e} omogena al di sotto dell'orizzonte cosmologico. Ci saranno delle perturbazioni che si propagano in anisotropie della temperatura e saranno tipicamente correlate alle anisotropie sopra l'orizzonte cosmologico $\frac{\delta \rho}{\rho}\sim \frac{\Delta T}{T}$. Ci aspettiamo che all'aumentare di $l$, quindi al diminuire della scala, si raggiunga un picco e poi avremo ulteriori oscillazioni perch\'{e} le perturbazioni sotto l'orizzonte acustico oscillano.\\
+Si hanno 4 caratteristiche nel grafico nella figura\ref{fig:cmbfluc}:\\
+\begin{enumerate}
+\item\textbf{ Spettro di HZ}: ad angoli $\theta> 2^{\circ}$ abbiamo spettro costante che contiene informazioni sull'inflazione.
+\item \textbf{Primo picco}:\textit{\'{e} una stima molto sensibile della ciurvatura spaziale dell'universo, che combinata con le osservazioni di Planck sul CMB si ottiene che la geometria spaziale dell'universo \'{e} euclidea quindi $\Omega_0+\Omega_{\Lambda0}=1$} \footnote{Combinando le osservazioni della CMB, la struttura a grande scala delle galassie e le supernovae Ia \'{e} possibile vincolare i parametri cosmologici con un accuratezza del $1\%$. Un'altra relazione $\frac{\Omega_0}{2}-\Omega_{\Lambda0}=-\frac{1}{2}$, ci arriva dallo studio delle Supernovae.}. Il primo picco si ha in corrispondenza di $l_{SH}\sim \frac{1}{\lambda_{SH}}$ che in termini angolari \'{e} $\theta=\frac{\lambda_{SH}^{prop}}{D_{A}}=\frac{\lambda_{SH}^{com}}{D}\approx 0.3 \Omega_0^{\frac{1}{2}}deg$ \footnote{In cui la $D$ la ricavo dalla formula di Mattig, implicitamente sto considerando grandi $z$ e costante $\Lambda=0$.}. Il valore $l\sim \frac{1}{\lambda_{SH}}$ corrisponde ad una singola oscillazione tra l'entrata nell'orizzonte e la ricombinazione.  Siccome $\theta \sim \frac{\pi}{l}$, $l_{SH}$ corrisponde a questo $\theta$ quindi dipender\'{a} da $\Omega_0$: se il parametro cosmologico $\Omega_0 \uparrow$ \'{e} pi\'{u} grande allora il picco si sposta a scale pi\'{u} piccole $l\uparrow$, vale il viceversa. Facendo il conto accurato con $\Lambda \neq 0$  vediamo che  $\Omega_{k0}=\Omega_{\Lambda_0}-1$ quindi la\textit{posizione del picco dello spettro delle anisotropie del CMB \'{e} sensibile alla geometria dell'universo perch\'{e} dipende dalla distanza angolare}. Quindi possiamo usare la distanza angolare per misurare i parametri cosmologici , se si ha un oggetto di cui conosciamo le dimensioni proprie. Il nostro oggetto di riferimento sar\'{a} $\lambda_{SH}$ di cui conosciamo la distanza coomovente e propria alla ricombinazione.
+\item \textbf{Secondo picco}:\textit{corrisponde alla scala $l_{D}\sim \frac{1}{\lambda_D}$ che dipende da $\Omega_b$. Al di sotto di questa lo spettro delle anisotropie si annulla per lo smorzamento Silk (siamo a $l\sim 2500-3000$).}\\
+\item \textbf{Terzo picco}: \textit{il terzo contiene informazioni sulla densit\'{a} di materia oscura}.
+\end{enumerate}
+\subsection{Approccio statistico}
 Per ottenere una stima corretta dello spettro delle anisotropie del CMB\footnote{Sono flutuazioni in T che coincidono con le fluttuazioni di densit\'{a} in materia barionica.} si devono studiare le soluzioni dell'equazione di Boltzmann per un fluido collisionale in un universo in espansione, in cui si tiene conto del modello CDM
 \begin{equation}
 \ddot{\delta_B}+2 \frac{\dot{a}}{a}\dot{\delta}_B  =4 \pi G \rho_D \delta_D-\delta_B k^2 c_S^2.
@@ -1593,63 +1619,55 @@ Consideriamo perturbazioni del campo di radiazione ($\rho_r \sim T^4$)  \textbf{
 c_S=\frac{c}{\sqrt{3(1+R)}}, \quad R=\frac{3\rho_B}{4\rho_r}
 \end{cases}
 \end{equation}
-Considerando un fluido \textbf{non relativistico} (il caso relativistico si ha con $R=-1$). La soluzione \'{e} la seguente:
+Considerando un fluido \textbf{non relativistico} (il caso relativistico si ha con $R=0$). La soluzione \'{e} la seguente:
 \begin{equation}
 \Theta(t)=\biggl[ \Theta_0+\frac{1+R}{c^2}\psi \biggr]\cos{\omega t}+\frac{\Theta_0}{\omega}\sin{\omega t}-\frac{1+R}{c^2} \psi
 \end{equation}
 Abbiamo definito la frequenza come $\omega=kc_S$. Si osservi che questa soluzione \'{e} oscillatoria, siamo infatti a $\lambda <\lambda_J$, tuttavia \'{e} parziale perch\'{e} non tiene conto del redshift gravitazionale
 \begin{equation}
-\frac{\Delta T}{T}=\Theta_{ric}+\frac{\psi}{c^2}.
+\frac{\Delta T}{T}=\Theta+\frac{\psi}{c^2}.
 \end{equation}
 Andiamo a studiare il comportamento dei picchi ($t=t_{ric} $), in cui sono contenute le informazioni di carattere cosmologico, imponendo le condizioni
 \begin{equation}
 \begin{cases}
 \omega t_{ric}=k\lambda_{SH}=n\pi, \quad n\in \mathbb{N}
 \\
-\Theta_0=0
-\\
-\psi=\delta \phi=cost
+\psi=\delta \phi=cost \Rightarrow \Theta_0=-\frac{2}{3} \frac{\psi}{c^2}
 \end{cases}
 \end{equation}
-osserviamo che $\Theta_0=0$ indica che la perturbazione \'{e} adiabatica, segue
+osserviamo che la seconda relazione deriva dall'effetto Sachs-Wolfe in cui vale $\frac{\Delta T}{T}=\Theta_0+\frac{\psi}{c^2}=\frac{\psi}{3c^2}$ da cui ricavo $\Theta_0$ su scale maggiori dell'orizzonte cosmologico, segue
 \begin{equation}
 \frac{\Delta T}{T}= \frac{\psi}{3c^2}[1+3R] \cos{\omega t}-\frac{R}{c}\psi
 \end{equation}
 ed infine considerando i massimi
 \begin{equation}
 \begin{cases}
-\frac{\Delta T}{T}= \frac{\psi}{3c^2}[1+6R] \frac{\psi}{3c^2}, \quad k\lambda_{SH}=\pi
+\frac{\Delta T}{T}=-[1+6R] \frac{\psi}{3c^2}, \quad k\lambda_{SH}=\pi
 \\
-\frac{\Delta T}{T}=\frac{1}{3} \frac{\psi}{c^2}\quad k\lambda_{SH}=2\pi
+\frac{\Delta T}{T}=\frac{1}{3} \frac{\psi}{c^2},\quad k\lambda_{SH}=2\pi
 \end{cases}
 \end{equation}
 la prima definisce la massima compressione (si ritrova l'effetto Sachs-Wolfe) e la seconda la massima espansione, in quanto si definisce $\psi<0$ per le buche di potenziale. Quindi $\frac{\Delta T}{T}$ \'{e} negativo nel caso della massima espansione e positivo nella massima compressione. Tutto torna in quanto i fotoni perdono pi\'{u} energia all'aumentare della profondit\'{a} della buca.\\
-Le fluttuazioni dello spettro della CMB dipendono dal parametro di Hubble "$h$".
 \begin{figure}[htp]
 \centering
-\includegraphics[width=7cm, height=7cm]{images/flucH.jpeg}
-\caption{Fluttuazioni della CMB in funzione di h.}
+\includegraphics[width=6cm, height=6cm]{images/flucH.jpeg}
+\caption{Le fluttuazioni dello spettro della CMB dipendono dal parametro di Hubble "$h$". \'{E} evidente che all'aumentare del parametro si allarga la finestra temporale tra $z_{eq}$ e $z_{ric}$, in quanto $z_{eq}\simeq 2.6 \cdot 10^{4} \Omega_0 h^2$ aumenta portando indietro l'epoca della ricombinazione. Ne consegue un abbassamento dello spettro. Si esprime la differenza tra la massima espansione e compressione attraverso il parametro $1+\sigma R$, con $R\propto \frac{\rho_B}{\rho_r}$. Quindi all'epoca della ricombinazione pi\'{u} aumento "$h$" e pi\'{u} $\rho_B$ si abbassa.}
 \label{fig:flucH}
 \end{figure}
-\'{E} evidente che all'aumentare del parametro si allarga la finestra temporale tra $z_{eq}$ e $z_{ric}$, in quanto $z_{eq}\simeq 2.6 \cdot 10^{4} \Omega_0 h^2$ aumenta portando indietro l'epoca della ricombinazione. Ne consegue un abbassamento dello spettro. Si esprime la differenza tra la massima espansione e compressione attraverso il parametro $1+\sigma R$, con $R\propto \frac{\rho_B}{\rho_r}$. Quindi all'epoca della ricombinazione pi\'{u} aumento "$h$" e pi\'{u} $\rho_B$ si abbassa.
 \begin{figure}[htp]
 \centering
-\includegraphics[width=7cm, height=7cm]{images/flucB.jpeg}
-\caption{Fluttuazioni della CMB in funzione di $\Omega_B$.}
+\includegraphics[width=6cm, height=6cm]{images/flucB.jpeg}
+\caption{Cosa contraria invece per il parametro $\Omega_B$. Infatti i due parametri sono in anticorrelazione, si parla di degenerazione tra i parametri cosmologici ($h$, $\Omega_B$ e $\Omega_0$), infatti varie combinazioni ci danno lo stesso spettro.}
 \label{fig:flucB}
 \end{figure}
-Cosa contraria invece per il parametro $\Omega_B$. Infatti i due parametri sono in anticorrelazione, si parla di degenerazione tra i parametri cosmologici ($h$, $\Omega_B$ e $\Omega_0$), infatti varie combinazioni ci danno lo stesso spettro.\\
-\textit{In sintesi lo spettro di anisotropie del CMB \'{e} correlato allo spettro di potensa delle perturbazioni di densit\'{a}, quindi ricco di informazioni sull'universo primordiale. Andiamo per punti:}
+\textit{In sintesi lo spettro di anisotropie del CMB \'{e} correlato allo spettro di potenza delle perturbazioni di densit\'{a}, quindi ricco di informazioni sull'universo primordiale. Andiamo per punti:}
 \begin{itemize}
-\item \textit{il primo picco determina la curvatura spaziale dell'universo, confermando $\Omega_0\sim 0.3$}
-\item \textit{il secondo determina la densit\'{a} barionica $\Omega_B\sim 0.7$}
-\item \textit{il terzo contiene informazioni sulla densit\'{a} di materia oscura}
 \item \textit{i punti di massima espansione corrispondono ai minimi dello spettro}
 \item \textit{le anisotropie primarie si sommano alle secondarie figlie dell'epoca di ricombinazione, quindi dell'effetto SZ, RS}
-\item \textit{il fatto che l'universo abbia perturbazioni di densit\'{a} iniziali di tipo ingflattivo gaussiane \'{e } in ottimo accordo con lo spettro del CMB, e anche dall'evoluzione dell'instabilit\'{a} gravitazionale.}
+\item \textit{il fatto che l'universo abbia perturbazioni di densit\'{a} iniziali di tipo inflattivo gaussiane \'{e } in ottimo accordo con lo spettro del CMB, e anche dall'evoluzione dell'instabilit\'{a} gravitazionale.}
 \end{itemize}
 \subsection{Mezzo intergalattico post-ricombinazione}
-\textbf{Prima della ricombiazione} ($t<t_{ric}$) l'universo era opaco a causa dello scattering Thomson, come avevamo visto. Evolvendo diventa sempre pi\'{u} otticamente sottile (trasparente) mano a mano avviene la ricombinazione, quindi i protoni e gli elettroni si legano formando HI. Questo periodo viene definito come \textbf{Dark Age} poich\'{e} tutta la radiazione era costituita dalla CMB che era impegnata nello scattering, quindi non esistevano fotoni ed energie diverse.\\
+\textbf{Prima della ricombiazione} ($t<t_{ric}$) l'universo era opaco a causa dello scattering Thomson, come avevamo visto. Evolvendo diventa sempre pi\'{u} otticamente sottile (trasparente) mano a mano avviene la ricombinazione, quindi i protoni e gli elettroni si legano formandoHI. Questo periodo viene definito come \textbf{Dark Age} poich\'{e} tutta la radiazione era costituita dalla CMB che era impegnata nello scattering, quindi non esistevano fotoni ed energie diverse.\\
 Alla \textbf{ricombiazione} ($t=t_{ric}$) tutto il gas era praticamente neutro, la frazione di ionizzazione lo dimostra $\frac{HII}{HI}=10^{-5}$, non \'{e} un rapporto statico poich\'{e} la materia in inflow nella buca costituita DM si raffredda radiativamente ionizzando materia. L'universo non \'{e} trasparente alle radiazioni con lunghezze d'onda inferiori alla lunghezza d'onda di ionizzazione dell'idrogeno ($\SI{912}{\angstrom}$), né alle forti transizioni dell'idrogeno neutro, di cui $Ly\alpha$ è di gran lunga il più forte. Il fenomeno di "cooling" della materia in questione non \'{e} \textbf{efficiente} in quanto avendo unicamente idrogeno ho pochi canali di raffreddamento, dunque il processo di frammentazione delle nubi protostellari porta alla formazione di stelle molto massicce POPIII. Essendo composte per la maggior parte di H, il loro spettro piccato nell'alto UV ionizza il mezzo intergalattico, infatti il $75\%$ dei fotoni che emette $\lambda_{Ly \alpha}=\SI{1216}{\angstrom}$ corrispondono alla transizione Lyman $\alpha$ dell'atomo di idrogeno ($n=1 \rightarrow n=2$). Siamo nel periodo della \textbf{reionizzazione} 
 \subsubsection{Sistema di assorbimento della serie di Lyman}
 Quando la luce UV proveniente da una sorgente di background, in genere un \textbf{Quasar} o una \textbf{giovane galassia} con alta formazione stellare, viaggia attraverso lo spazio intergalattico, viene continuamente redshiftata prima di essere misurata dai nostri rilevatori. Nel suo cammino incontra sistemi di HI raggrumati e fluttuanti nella struttura filamentosa 2D su larga scala che costituisce lo space web. Questo \'{e} quella che viene definita \textbf{foresta Ly$\alpha$}, ovvero nubi di idrogeno neutro con densit\'{a} numerica che possiamo calcolarci in una metrica di FW dalle seguenti relazioni:
